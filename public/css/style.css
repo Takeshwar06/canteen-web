@@ -1,0 +1,759 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+body {
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+}
+#contents {
+  margin: auto;
+  width: 100%;
+  border: 2px solid black;
+}
+#navbar {
+  position: sticky;
+  top: 0px;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+#nav {
+  padding: 9px;
+  border: 3px solid rgb(120, 120, 236);
+  background-color: rgb(225, 204, 240);
+  height: 110px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+}
+#header {
+  margin-left: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#header #mainHead h1 {
+  padding-top: 10px;
+  margin-left: 25px;
+  /* width: 300%; */
+  font-weight: bold;
+  font-size: 2.3rem;
+  /* margin: 12px 0px 12px 14px; */
+}
+#header #logo img {
+  height: 90px;
+}
+
+#searchBlock {
+  margin: auto 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search{ 
+  margin-top: 12px;
+  display : flex;
+  align-items: center;
+  justify-content : center;
+
+}
+
+#searchBlock #searchLogo img {
+  height: 15px;
+}
+#search input[type="text"] {
+  font-size: 1.3rem;
+  text-align: left;
+  margin-left: -4rem;
+  border: 2px solid rebeccapurple;
+  border-radius: 25px 0 0 25px;
+  text-align: left;
+  width: 515px;
+  height: 50px;
+  padding-left: 22px;
+
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type="text"]::placeholder {
+  font-size: 1.3rem;
+  text-align: left;
+}
+#search #searchBtn {
+  font-size: 1.2rem;
+  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  border-radius: 0 25px 25px 0;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+}
+#searchBtn:hover {
+  transform: scale(1.06);
+}
+#searchBtn:active {
+  transform: scale(0.99999);
+}
+
+
+#cartImage img {
+  cursor: pointer;
+  height: 43px;
+  position: absolute;
+  right: 2.9rem;
+  top: 2.7rem;
+ 
+
+  padding: 6px 17px;
+}
+#cartImage #logo {
+  transition: all 0.4s ease;
+}
+
+#cartImage #logo:hover {
+  color: #1b1b1b;
+  background-color: white;
+  border-radius: 3px;
+}
+#cartImage #logo:active{
+  background-color: rgb(233, 127, 127);
+}
+
+
+/* all menu btn properties is here */
+nav ul {
+  /* border: 3px solid red; */
+
+  display: flex;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  font-size: 20px;
+  font-weight: 500;
+  /* color: #fff; */
+  color: red;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding: 8px 10px;
+  transition: all 0.4s ease;
+}
+
+nav ul li a:hover {
+  color: #1b1b1b;
+  background-color: white;
+}
+
+nav ul li #active {
+  color: #1b1b1b;
+  background-color: white;
+}
+nav ul li #active:active,
+nav ul li a:active {
+  background-color: rgb(233, 127, 127);
+}
+nav .menu-btn {
+  color: #f2f2f2;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+.fa-bars:before, .fa-navicon:before {
+  content: "\f0c9";
+  margin-right: 6rem;
+}
+#click {
+  display: none;
+}
+.menu-btn i {
+  position: fixed;
+  right: 4rem;
+  top: 3.5rem;
+  color: black;
+}
+@media (max-width:1217px) {
+  nav .menu-btn {
+    display: block;
+  }
+  #click:checked ~ .menu-btn i::before {
+    content: "\f00d";
+    font-size: 20px;
+  }
+  nav ul {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    right: 50%;
+
+    transform: translate(-50%, -50%) scale(0.4);
+    text-align: center;
+    visibility: hidden;
+    /* left: -100%; */
+
+    background: #1b1b1b;
+    margin: auto;
+    height: 200px;
+    /* margin : auto; */
+    width: 100%;
+    display: block;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+
+  #click:checked ~ ul {
+    left: 0%;
+    visibility: visible;
+    height: 400px;
+    top: 19.5rem;
+    transform: translate(-0%, -50%) scale(1);
+  }
+
+  nav ul li {
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    /* border : 2px solid red;
+    display : block; */
+    font-size: 10px;
+  }
+
+  /* nav ul li a:hover,
+  nav ul li #active{
+      color : cyan;
+      background: none;
+  }
+  */
+}
+
+#allBtn {
+  margin: 0.5% auto;
+  position: absolute;
+  right: 6%;
+}
+#allBtn #buttons {
+  margin-top: 4%;
+  display: flex;
+}
+#allBtn #buttons #bar {
+  display: flex;
+}
+
+#allBtn #buttons #bar #more {
+  cursor: pointer;
+  /* margin: 0px 10px 0px 10px; */
+  /* background-color: rgb(220, 209, 209); */
+  font-size: 1.4rem;
+  font-weight: bold;
+  /* padding: 5px 15px; */
+  border: none;
+  background: none;
+  /* border: 2px solid red; */
+  /* border-radius: 3px; */
+}
+#allBtn #buttons #bar #login {
+  cursor: pointer;
+  /* margin: 0px 10px 0px 20px; */
+  /* background-color: rgb(220, 209, 209); */
+  font-size: 1.4rem;
+  font-weight: bold;
+  /* padding: 2px 15px; */
+  border: none;
+  background: none;
+  /* border: 2px solid red; */
+  /* border-radius: 3px; */
+}
+.menuBtn a:hover {
+  background-color: #f2f2f2;
+}
+.menuBtn a:active {
+  transform: scale(0.999999);
+}
+#more a {
+  padding: 5px 15px;
+  text-decoration: none;
+  color: black;
+}
+#login a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.menuBtn {
+  cursor: pointer;
+  margin: auto;
+}
+#cart {
+  margin: auto 20px;
+  /* border : 2px solid black; */
+  display: flex;
+}
+#cart #cartLogo img {
+  height: 45px;
+}
+#cartLogo img:hover {
+  transform: scale(1.06);
+}
+#cartLogo img:active {
+  transform: scale(0.99999);
+}
+/* main content */
+#mainContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+} /* 
+.center{
+    margin: auto; 
+}*/
+#showFood {
+  margin: 15px 70px;
+  width: 100%;
+}
+#showFood h2 {
+  font-size: 1.8rem;
+  margin-top: 1%;
+}
+#allFoods {
+  margin: 10px;
+}
+#allFoods .food {
+  margin: 3px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.food img:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+.food img:active {
+  cursor: pointer;
+  transform: scale(0.999999);
+}
+#allFoods .food img {
+  border: 2px solid black;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+.label {
+  margin: auto 26px;
+}
+
+/* slider animaitons */
+#specialFood {
+  margin-top: 1%;
+  text-align: center;
+}
+#Special-Heading {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-bottom: 1.8%;
+}
+#slider {
+  margin: 20px auto;
+  height: 50%;
+  /* width: 100%; */
+  overflow-x: hidden;
+}
+
+#slider figure {
+  position: relative;
+  width: 1000%;
+  margin: 0;
+  left: 0;
+  animation: slider 10s infinite;
+}
+
+#slider figure img {
+  margin: 0px;
+  border: 1px solid rgb(243, 206, 193);
+  height: 50%;
+  width: 10%;
+  float: left;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+
+  10% {
+    left: 0;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  30% {
+    left: -100%;
+  }
+
+  40% {
+    left: -200%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  60% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  80% {
+    left: -400%;
+  }
+
+  90% {
+    left: -400%;
+  }
+}
+
+/* All dishesh description */
+#allDish {
+  display: inline-block;
+  margin: auto;
+  width: 90%;
+  /* border : 10px solid black; */
+}
+#allDish h1 {
+  font-size: 2.6rem;
+  margin: 2%;
+  margin-bottom: 3%;
+  text-align: center;
+}
+#dishes {
+  margin: 2%;
+  margin-top: 0px;
+  padding: 10px;
+  background-color: rgb(235, 231, 224);
+  border: 2px solid black;
+  border-radius: 4px;
+  display: inline-block;
+}
+#dishes #logo img {
+  width: 310px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+  
+
+.dname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+#dishName:hover {
+  background-color: rgb(213, 204, 204);
+}
+#dishName #name,
+#price:hover {
+  cursor: pointer;
+}
+
+#logo img:hover {
+  cursor: pointer;
+  transform: scale(1.0234);
+}
+#logo img:active {
+  cursor: pointer;
+  transform: scale(0.999999);
+}
+#addingCart {
+  width: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#minusBtn {
+  border-radius: 100%;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif; */
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 7px;
+  /* margin-left: ; */
+  border: 2px solid black;
+  padding: 3px 11px;
+}
+
+#addBtn {
+  border-radius: 100%;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+  border: 2px solid black;
+  padding: 4px 9px;
+}
+.Btn {
+  cursor: pointer;
+  margin: 3px;
+}
+.Btn:hover {
+  transform: scale(1.06);
+  background-color: bisque;
+}
+.Btn:active {
+  transform: scale(0.999999);
+  background-color: bisque;
+}
+.addCartBtn {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif; */
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid black;
+  margin: 10px;
+  margin-left: 15px;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+#footer h4 {
+  font-weight: 400;
+  font-size: 19px;
+  padding: 4px;
+  text-align: center;
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+}
+
+
+
+
+
+
+/* modal for  */
+ /* desing the popup of login panel */
+ * {
+  font-family: 'Bree Serif';
+}
+
+.LoginForms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.allBox {
+
+  border: 1px solid rgb(120, 115, 115);
+  border-radius: 6px;
+  background-color: rgb(224 234 229);
+  position: fixed;
+  left: 37%;
+  top: -100px;
+  width: 470px;
+  overflow: hidden;
+  height: 430px;
+  visibility: hidden;
+  z-index: 1;
+  box-sizing: 0 5px 30px rgba(0, 0, 0, .30);
+  transition: transform 0.3s, top 0.4s;
+
+  transform: scale(0.1);
+
+
+}
+
+.allBox h2 {
+  text-align: center;
+  margin: 16px 12px;
+  letter-spacing: 0.03rem;
+  word-spacing: 4px;
+  font-size: 1.4rem;
+}
+
+#LoginForm {
+  margin-left: 13px;
+  padding: 1px;
+}
+
+#emailId label,
+#emailId label {
+  font-size: 1.1rem;
+}
+
+#emailId #addEmail {
+  text-align: left;
+
+  /*border: 1px solid rgb(187, 181, 181);
+  border-radius: 5px;
+  */
+  padding: 5px 9px;
+  background-color: #f2f2f2;
+  margin: 10px 0px 15px 0px;
+  width: 93%;
+
+  border: 1px solid rgb(121, 119, 116);
+  border-radius: 3px;
+}
+
+#password #addPass {
+  text-align: left;
+
+  border: 1px solid rgb(187, 181, 181);
+  border-radius: 5px;
+  padding: 5px 9px;
+  background-color: #f2f2f2;
+  margin: 10px 15px 43px 0px;
+  width: 93%;
+
+}
+
+#password hr {
+  margin: 0px;
+}
+
+#password {
+  margin-top: 5px;
+}
+
+#Bottons {
+  margin: 15px 30px 15px 0px;
+  display: flex;
+  float: right;
+
+
+}
+
+#CloseBtn {
+  color: white;
+  margin-right: 10px;
+  border: none;
+  background: grey;
+  border-radius: 5px;
+  padding: 4px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+}
+
+#GoBtn {
+  color: white;
+  margin-left: 10px;
+  border: none;
+  background: blueviolet;
+  border-radius: 5px;
+  padding: 4px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+}
+
+#CloseBtn:hover,
+#GoBtn:hover {
+  transform: scale(1.05);
+}
+
+#CloseBtn:active,
+#GoBtn:active {
+  transform: scale(0.9999);
+}
+
+::placeholder {
+  font-size: 0.9rem;
+}
+
+.open-popup {
+  transform: scale(1);
+  top: 35px;
+  visibility: visible;
+
+}
+
+.active {
+  /*filter: blur(4px);
+  */
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+
+}
+
+.images {
+
+  border: 1px solid rgb(208, 16, 83);
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+
+#openingWeb {
+  z-index: 5;
+  height: 0vh;
+  top: 2px;
+  display: flex;
+}
+
+#openLeft {
+  z-index: 5;
+  position: relative;
+  top: 0px;
+  /* 0 to -50 */
+  background-color: white;
+  height: 150vh;
+  top: -200px;
+  right: 0vw;
+  width: 52vw;
+  transition: 1.5s 0.1s all;
+}
+
+#openRight {
+  z-index: 5;
+  position: relative;
+  background-color: white;
+  height: 150vh;
+  top: -200px;
+  left: 0vw;
+  width: 52vw;
+  transition: 1.5s 0.1s all;
+}
+
+.leftBox{
+  right: 52vw;
+ visibility: hidden;
+ height: 0px;
+}
+
+.rightBox{
+  left: 52vw;
+   visibility: hidden;
+   height: 0px;
+}

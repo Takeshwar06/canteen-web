@@ -1,0 +1,41 @@
+[{
+    "foodName":"samosa",
+    "img":"../img/img (1).jfif",
+    "prize":20
+},
+{
+    "foodName":"dosh",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fd2e5ushqwiltxm.cloudfront.net%2Fwp-content%2Fuploads%2Fsites%2F12%2F2017%2F03%2F06135449%2FSouth-Indian-Dishes.jpg&imgrefurl=https%3A%2F%2Fwww.pullmannewdelhi.com%2Fmedia-tag%2Fsouth-indian-dishes%2F&tbnid=-0q-jZPm5pQxtM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg..i&docid=Jh9fkTMmLOVnTM&w=1600&h=884&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg",
+    "prize":30
+},
+{
+    "foodName":"samosa",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F09%2F42%2F93%2Fa4%2Fhotel-curry-leaves.jpg&imgrefurl=https%3A%2F%2Fwww.tripadvisor.in%2FLocationPhotoDirectLink-g679021-d8725321-i155358116-Hotel_Curry_Leaves-Shirdi_Ahmednagar_District_Maharashtra.html&tbnid=hmJe59jjb6duwM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygcegUIARCfAg..i&docid=E9rMt9C7ebt3bM&w=550&h=364&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygcegUIARCfAg",
+    "prize":20
+},
+{
+    "foodName":"dosh",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fd2e5ushqwiltxm.cloudfront.net%2Fwp-content%2Fuploads%2Fsites%2F12%2F2017%2F03%2F06135449%2FSouth-Indian-Dishes.jpg&imgrefurl=https%3A%2F%2Fwww.pullmannewdelhi.com%2Fmedia-tag%2Fsouth-indian-dishes%2F&tbnid=-0q-jZPm5pQxtM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg..i&docid=Jh9fkTMmLOVnTM&w=1600&h=884&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg",
+    "prize":30
+},
+{
+    "foodName":"samosa",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F09%2F42%2F93%2Fa4%2Fhotel-curry-leaves.jpg&imgrefurl=https%3A%2F%2Fwww.tripadvisor.in%2FLocationPhotoDirectLink-g679021-d8725321-i155358116-Hotel_Curry_Leaves-Shirdi_Ahmednagar_District_Maharashtra.html&tbnid=hmJe59jjb6duwM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygcegUIARCfAg..i&docid=E9rMt9C7ebt3bM&w=550&h=364&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygcegUIARCfAg",
+    "prize":20
+},
+{
+    "foodName":"dosh",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.toiimg.com%2Fthumb%2Fmsid-77028654%2Cwidth-400%2Cresizemode-4%2F77028654.jpg&imgrefurl=https%3A%2F%2Ftimesofindia.indiatimes.com%2Fcity%2Fchennai%2Fchennai-dial-for-a-dinner-from-your-favourite-star-hotel%2Farticleshow%2F77028657.cms&tbnid=LGAo9e7vOk3RNM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygBegUIARDiAQ..i&docid=WYguEZK_yz8vGM&w=400&h=300&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygBegUIARDiAQ",
+    "prize":30
+},
+{
+    "foodName":"samosa",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fd2e5ushqwiltxm.cloudfront.net%2Fwp-content%2Fuploads%2Fsites%2F12%2F2017%2F03%2F06135449%2FSouth-Indian-Dishes.jpg&imgrefurl=https%3A%2F%2Fwww.pullmannewdelhi.com%2Fmedia-tag%2Fsouth-indian-dishes%2F&tbnid=-0q-jZPm5pQxtM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg..i&docid=Jh9fkTMmLOVnTM&w=1600&h=884&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygSegUIARCGAg",
+    "prize":20
+},
+{
+    "foodName":"dosh",
+    "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.toiimg.com%2Fthumb%2Fmsid-77028654%2Cwidth-400%2Cresizemode-4%2F77028654.jpg&imgrefurl=https%3A%2F%2Ftimesofindia.indiatimes.com%2Fcity%2Fchennai%2Fchennai-dial-for-a-dinner-from-your-favourite-star-hotel%2Farticleshow%2F77028657.cms&tbnid=LGAo9e7vOk3RNM&vet=12ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygBegUIARDiAQ..i&docid=WYguEZK_yz8vGM&w=400&h=300&q=hotel%20dishes&ved=2ahUKEwjRuJy-yL37AhXyXnwKHdM6CS0QMygBegUIARDiAQ",
+    "prize":30
+}
+]
