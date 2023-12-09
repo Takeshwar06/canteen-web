@@ -2,6 +2,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+}
+#root {
+  background-color: #fff;
 }
 html,
 body {
@@ -11,369 +15,254 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
-body {
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
-}
-#contents {
-  margin: auto;
-  width: 100%;
-  border: 2px solid black;
-}
+
+/* --------------  CSS CODE REFACTOR ------------------------- */
+/* ------------ NAVBAR COMPONENT -------------- */
 #navbar {
-  position: sticky;
-  top: 0px;
-  margin: auto;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-#nav {
-  padding: 9px;
-  border: 3px solid rgb(120, 120, 236);
-  background-color: rgb(225, 204, 240);
-  height: 110px;
-  margin: auto;
-  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 2px;
+  min-width: 100%;
+  background-color: #f2f2f2;
+  height: 100px;
+  padding: 0 5vw;
+
+  box-shadow: 0 1px 3px rgb(206, 164, 236);
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 #header {
-  margin-left: 70px;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-#header #mainHead h1 {
-  padding-top: 10px;
-  margin-left: 25px;
-  /* width: 300%; */
-  font-weight: bold;
-  font-size: 2.3rem;
-  /* margin: 12px 0px 12px 14px; */
-}
-#header #logo img {
-  height: 90px;
-}
-
-#searchBlock {
-  margin: auto 7%;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 1rem;
 }
-#search{ 
-  margin-top: 12px;
-  display : flex;
-  align-items: center;
-  justify-content : center;
-
+#logo img {
+  height: 80px;
 }
-
-#searchBlock #searchLogo img {
-  height: 15px;
-}
-#search input[type="text"] {
-  font-size: 1.3rem;
-  text-align: left;
-  margin-left: -4rem;
-  border: 2px solid rebeccapurple;
-  border-radius: 25px 0 0 25px;
-  text-align: left;
-  width: 515px;
-  height: 50px;
-  padding-left: 22px;
-
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
-}
-input[type="text"]::placeholder {
-  font-size: 1.3rem;
-  text-align: left;
-}
-#search #searchBtn {
-  font-size: 1.2rem;
-  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
-  position: relative;
-  border-radius: 0 25px 25px 0;
-  width: 100px;
-  height: 50px;
-  cursor: pointer;
-}
-#searchBtn:hover {
-  transform: scale(1.06);
-}
-#searchBtn:active {
-  transform: scale(0.99999);
-}
-
-
-#cartImage img {
-  cursor: pointer;
-  height: 43px;
-  position: absolute;
-  right: 2.9rem;
-  top: 2.7rem;
- 
-
-  padding: 6px 17px;
-}
-#cartImage #logo {
-  transition: all 0.4s ease;
-}
-
-#cartImage #logo:hover {
-  color: #1b1b1b;
-  background-color: white;
-  border-radius: 3px;
-}
-#cartImage #logo:active{
-  background-color: rgb(233, 127, 127);
-}
-
-
-/* all menu btn properties is here */
-nav ul {
-  /* border: 3px solid red; */
-
-  display: flex;
-  list-style: none;
-}
-nav ul li {
-  margin: 0 5px;
-}
-
-nav ul li a {
-  font-size: 20px;
+#mainHeading h1 {
+  font-size: 2.2rem;
+  font-family: "bree serif";
   font-weight: 500;
-  /* color: #fff; */
-  color: red;
+}
+.menu-container {
+  font-family: "overpass";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+#login-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#login-link img {
+  cursor: pointer;
+  height: 30px;
+}
+#login-link span {
+  font-family: "overpass";
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  padding: 4px 15px 0px;
+  transition: all 0.4s ease;
+}
+.menu-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-container .menu-links li {
+  margin: 0rem;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-container .menu-links li a {
+  font-family: "overpass";
+  font-weight: bold;
+  text-transform: capitalize;
   text-decoration: none;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  padding: 8px 10px;
+  border-radius: 1rem;
+  color: black;
+  font-size: 1.3rem;
+  padding: 4px 15px 0px;
   transition: all 0.4s ease;
 }
 
-nav ul li a:hover {
-  color: #1b1b1b;
-  background-color: white;
+.menu-links li a:hover,
+#login-link span:hover {
+  background: #bee3f8;
 }
-
-nav ul li #active {
-  color: #1b1b1b;
-  background-color: white;
-}
-nav ul li #active:active,
-nav ul li a:active {
-  background-color: rgb(233, 127, 127);
-}
-nav .menu-btn {
-  color: #f2f2f2;
-  font-size: 25px;
+.fa-bars {
   cursor: pointer;
-  display: none;
+  font-size: 1.6rem;
+  position: relative;
+  left: 0.5rem;
+  top: 0.1rem;
 }
-.fa-bars:before, .fa-navicon:before {
-  content: "\f0c9";
-  margin-right: 6rem;
+.fa-close {
+  cursor: pointer;
+  font-size: 1.9rem;
+  position: relative;
+  left: 0.5rem;
+  top: 0.1rem;
 }
-#click {
-  display: none;
-}
-.menu-btn i {
-  position: fixed;
-  right: 4rem;
-  top: 3.5rem;
-  color: black;
-}
-@media (max-width:1217px) {
-  nav .menu-btn {
-    display: block;
-  }
-  #click:checked ~ .menu-btn i::before {
-    content: "\f00d";
-    font-size: 20px;
-  }
-  nav ul {
-    position: fixed;
-    top: 0px;
-    left: 50%;
-    right: 50%;
 
-    transform: translate(-50%, -50%) scale(0.4);
-    text-align: center;
-    visibility: hidden;
-    /* left: -100%; */
-
-    background: #1b1b1b;
-    margin: auto;
-    height: 200px;
-    /* margin : auto; */
+/* VERY IMPORTANT CODE MENU-SLIDER */
+@media (max-width: 900px) {
+  .menu-links {
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    flex-direction: column;
+    position: absolute;
+    top: 102px;
     width: 100%;
-    display: block;
-    text-align: center;
-    transition: all 0.4s ease;
+    /* left: 0%; */
+    height: 100vh;
+    z-index: 3;
+    align-items: start;
+    justify-content: start;
   }
-
-  #click:checked ~ ul {
-    left: 0%;
-    visibility: visible;
-    height: 400px;
-    top: 19.5rem;
-    transform: translate(-0%, -50%) scale(1);
+  .menu-container .menu-links li {
+    justify-content: start;
+    width: 100%;
+    border-bottom: 1px solid rgb(196, 192, 192);
   }
-
-  nav ul li {
-    margin: 40px 0;
+  .menu-container .menu-links li a {
+    font-size: 1.1rem;
+    font-family: "overpass";
+    margin: 0.5rem 0.2rem;
   }
-
-  nav ul li a {
-    /* border : 2px solid red;
-    display : block; */
-    font-size: 10px;
+}
+@media (max-width: 500px) {
+  #login-link img {
+    height: 27px;
   }
-
-  /* nav ul li a:hover,
-  nav ul li #active{
-      color : cyan;
-      background: none;
+  #navbar {
+    padding: 0 3vw;
+    height: 80px;
   }
-  */
+  #logo img {
+    height: 60px;
+  }
+  #header {
+    gap: 0.6rem;
+  }
+  #mainHeading h1 {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 356px) {
+  #mainHeading h1 {
+    font-size: 1.5rem;
+  }
 }
 
-#allBtn {
-  margin: 0.5% auto;
-  position: absolute;
-  right: 6%;
-}
-#allBtn #buttons {
-  margin-top: 4%;
-  display: flex;
-}
-#allBtn #buttons #bar {
-  display: flex;
-}
-
-#allBtn #buttons #bar #more {
-  cursor: pointer;
-  /* margin: 0px 10px 0px 10px; */
-  /* background-color: rgb(220, 209, 209); */
-  font-size: 1.4rem;
-  font-weight: bold;
-  /* padding: 5px 15px; */
-  border: none;
-  background: none;
-  /* border: 2px solid red; */
-  /* border-radius: 3px; */
-}
-#allBtn #buttons #bar #login {
-  cursor: pointer;
-  /* margin: 0px 10px 0px 20px; */
-  /* background-color: rgb(220, 209, 209); */
-  font-size: 1.4rem;
-  font-weight: bold;
-  /* padding: 2px 15px; */
-  border: none;
-  background: none;
-  /* border: 2px solid red; */
-  /* border-radius: 3px; */
-}
-.menuBtn a:hover {
-  background-color: #f2f2f2;
-}
-.menuBtn a:active {
-  transform: scale(0.999999);
-}
-#more a {
-  padding: 5px 15px;
-  text-decoration: none;
-  color: black;
-}
-#login a {
-  padding: 5px 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.menuBtn {
-  cursor: pointer;
-  margin: auto;
-}
-#cart {
-  margin: auto 20px;
-  /* border : 2px solid black; */
-  display: flex;
-}
-#cart #cartLogo img {
-  height: 45px;
-}
-#cartLogo img:hover {
-  transform: scale(1.06);
-}
-#cartLogo img:active {
-  transform: scale(0.99999);
-}
-/* main content */
-#mainContent {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-} /* 
-.center{
-    margin: auto; 
-}*/
+/* ----- CIRCULR FOOD STYLES---------- */
 #showFood {
-  margin: 15px 70px;
+  /* margin: 15px 70px; */
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #showFood h2 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   font-size: 1.8rem;
   margin-top: 1%;
+  padding-left: 5vw;
 }
+/* container of only circluar food */
 #allFoods {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 0.8rem 1rem;
+}
+@media (max-width: 412px) {
+  #allFoods {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 377px) {
+  #allFoods {
+    gap: 0.2rem;
+  }
+}
+@media (max-width: 359px) {
+  #allFoods {
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 #allFoods .food {
-  margin: 3px;
-  padding: 10px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.food img:hover {
-  cursor: pointer;
-  transform: scale(1.04);
-}
-.food img:active {
-  cursor: pointer;
-  transform: scale(0.999999);
-}
 #allFoods .food img {
+  transition: all 0.2s ease-in;
   border: 2px solid black;
   border-radius: 100%;
   width: 100px;
   height: 100px;
 }
-.label {
-  margin: auto 26px;
+.food img:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+.label label {
+  font-family: "overpasss", "signika negative";
+  text-transform: capitalize;
+}
+.food img:active {
+  cursor: pointer;
+  transform: scale(0.999999);
+}
+/* media quesry for that */
+@media (max-width: 800px) {
+  #showFood {
+    margin: 1rem 0.4rem;
+  }
+  #allFoods {
+    margin: 0.4rem 0.8rem;
+  }
+  #showFood h2 {
+    font-size: 1.4rem;
+  }
+  #allFoods .food img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
-/* slider animaitons */
+/* ----- MAIN SLIDER ANIMATION STYLES---------- */
 #specialFood {
   margin-top: 1%;
   text-align: center;
 }
 #Special-Heading {
-  font-size: 2.6rem;
-  font-weight: bold;
+  font-size: 2.1rem;
+  font-weight: normal;
   margin-top: 1%;
   margin-bottom: 1.8%;
 }
 #slider {
   margin: 20px auto;
   height: 50%;
-  /* width: 100%; */
   overflow-x: hidden;
 }
 
@@ -435,112 +324,212 @@ nav .menu-btn {
   }
 }
 
-/* All dishesh description */
-#allDish {
-  display: inline-block;
-  margin: auto;
-  width: 90%;
-  /* border : 10px solid black; */
+/* slider responsive */
+@media (max-width: 800px) {
+  #Special-Heading {
+    font-size: 1.4rem;
+  }
 }
-#allDish h1 {
-  font-size: 2.6rem;
-  margin: 2%;
-  margin-bottom: 3%;
-  text-align: center;
-}
-#dishes {
-  margin: 2%;
-  margin-top: 0px;
-  padding: 10px;
-  background-color: rgb(235, 231, 224);
-  border: 2px solid black;
-  border-radius: 4px;
-  display: inline-block;
-}
-#dishes #logo img {
-  width: 310px;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 4px;
-}
-  
 
-.dname {
+/* ----- ALL DISH CARDS STYLES---------- */
+#allDish {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 22px;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+/* dishesh box */
+#dishes:hover {
+  transition: all 0.4s;
+  transform: scale(1.05);
+}
+#dishes {
+  transition: all 0.4s;
+  /* background-color: rgb(223, 219, 219); */
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid rgb(185, 177, 177);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s;
+}
+/* imae of inside of dish */
+#dishes #logo img {
+  border: 4px 4px 0 0;
+  transition: all 0.4s;
+  width: 250px;
+  height: 200px;
 }
 
-#dishName:hover {
-  background-color: rgb(213, 204, 204);
-}
-#dishName #name,
-#price:hover {
+.dname {
+  font-family: "signika negative";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  transition: all 0.4s ease-in;
   cursor: pointer;
+  margin: 0.4rem 0;
 }
-
-#logo img:hover {
-  cursor: pointer;
-  transform: scale(1.0234);
+#name {
+  text-transform: uppercase;
 }
-#logo img:active {
-  cursor: pointer;
-  transform: scale(0.999999);
+.dname:hover {
+  background-color: rgb(211, 208, 208);
+}
+#dishName {
+  margin-top: 0.6rem;
 }
 #addingCart {
-  width: 290px;
+  margin-bottom: 0.6rem;
+  /* width: 290px; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #minusBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 100%;
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif; */
   font-weight: bold;
-  font-size: 20px;
-  margin-right: 7px;
-  /* margin-left: ; */
-  border: 2px solid black;
-  padding: 3px 11px;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 0 8px;
+  transition: all 0.2s ease-in;
 }
-
+#number {
+  font-size: 1.1rem;
+  padding: 0 0.2rem;
+}
 #addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 100%;
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
-  font-size: 20px;
-  margin-left: 10px;
-  border: 2px solid black;
-  padding: 4px 9px;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 0px 5px;
+  transition: all 0.2s ease-in;
 }
 .Btn {
   cursor: pointer;
   margin: 3px;
 }
 .Btn:hover {
-  transform: scale(1.06);
-  background-color: bisque;
-}
-.Btn:active {
-  transform: scale(0.999999);
+  transform: scale(1.04);
   background-color: bisque;
 }
 .addCartBtn {
   color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif; */
-  font-weight: bold;
-  font-size: 18px;
-  border: 2px solid black;
-  margin: 10px;
-  margin-left: 15px;
-  padding: 4px 10px;
-  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 2px 8px 0px 8px;
+  margin-left: 0.5rem;
+  transition: all 0.3s ease-in;
+  text-align: center;
+  font-family: "signika negative";
+  border: 1px solid black;
+  border-radius: 7px;
+  cursor: pointer;
 }
+
+/* responsive desgin */
+@media (max-width: 600px) {
+  #allDish {
+    gap: 0rem;
+  }
+}
+@media (max-width: 800px) {
+  /* imae of inside of dish */
+  #dishes #logo img {
+    width: 300px;
+    height: 200px;
+  }
+  .dname {
+    font-size: 1.5rem;
+  }
+  #number {
+    font-size: 1.3rem;
+  }
+
+  #number {
+    font-size: 1.1rem;
+    padding: 0 0.2rem;
+  }
+  #minusBtn {
+    font-size: 20px;
+    padding: 0 11px;
+  }
+  #addBtn {
+    font-size: 20px;
+    padding: 0px 7px;
+  }
+  .addCartBtn {
+    font-size: 1.1rem;
+    padding: 1px 8px 0px 8px;
+    margin-left: 10px;
+  }
+}
+
+/* coin - popup styles */
+.coin-popup {
+  background-color: red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.allBox {
+  border: 1px solid rgb(120, 115, 115);
+  border-radius: 6px;
+  background-color: rgb(224 234 229);
+  width: 470px;
+  overflow: hidden;
+  height: 430px;
+  visibility: hidden;
+  z-index: 1;
+  box-sizing: 0 5px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, top 0.4s;
+  position: absolute;
+  top: 100px;
+  transform: scale(0.1);
+}
+
+.allBox h2 {
+  text-align: center;
+  margin: 16px 12px;
+  letter-spacing: 0.03rem;
+  word-spacing: 4px;
+  font-size: 1.4rem;
+}
+.allBox p {
+    font-size: 20px;
+  }
+
+@media (max-width: 500px) {
+  .allBox {
+    width: 23rem;
+  }
+  .allBox p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 400px) {
+  .allBox {
+    width: 21rem;
+  }
+}
+
+
+/* Below code is not refactored ------------------------- */
+
 #footer h4 {
   font-weight: 400;
   font-size: 19px;
@@ -551,50 +540,16 @@ nav .menu-btn {
   background-color: black;
 }
 
-
-
-
-
-
 /* modal for  */
- /* desing the popup of login panel */
- * {
-  font-family: 'Bree Serif';
+/* desing the popup of login panel */
+* {
+  font-family: "Bree Serif";
 }
 
 .LoginForms {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.allBox {
-
-  border: 1px solid rgb(120, 115, 115);
-  border-radius: 6px;
-  background-color: rgb(224 234 229);
-  position: fixed;
-  left: 37%;
-  top: -100px;
-  width: 470px;
-  overflow: hidden;
-  height: 430px;
-  visibility: hidden;
-  z-index: 1;
-  box-sizing: 0 5px 30px rgba(0, 0, 0, .30);
-  transition: transform 0.3s, top 0.4s;
-
-  transform: scale(0.1);
-
-
-}
-
-.allBox h2 {
-  text-align: center;
-  margin: 16px 12px;
-  letter-spacing: 0.03rem;
-  word-spacing: 4px;
-  font-size: 1.4rem;
 }
 
 #LoginForm {
@@ -631,7 +586,6 @@ nav .menu-btn {
   background-color: #f2f2f2;
   margin: 10px 15px 43px 0px;
   width: 93%;
-
 }
 
 #password hr {
@@ -646,8 +600,6 @@ nav .menu-btn {
   margin: 15px 30px 15px 0px;
   display: flex;
   float: right;
-
-
 }
 
 #CloseBtn {
@@ -659,7 +611,6 @@ nav .menu-btn {
   padding: 4px 20px;
   font-size: 1.2rem;
   cursor: pointer;
-
 }
 
 #GoBtn {
@@ -671,7 +622,6 @@ nav .menu-btn {
   padding: 4px 20px;
   font-size: 1.2rem;
   cursor: pointer;
-
 }
 
 #CloseBtn:hover,
@@ -692,7 +642,6 @@ nav .menu-btn {
   transform: scale(1);
   top: 35px;
   visibility: visible;
-
 }
 
 .active {
@@ -701,11 +650,9 @@ nav .menu-btn {
   opacity: 0.5;
   pointer-events: none;
   user-select: none;
-
 }
 
 .images {
-
   border: 1px solid rgb(208, 16, 83);
   display: block;
   margin: auto;
@@ -713,7 +660,6 @@ nav .menu-btn {
   width: 100px;
   border-radius: 50%;
 }
-
 
 #openingWeb {
   z-index: 5;
@@ -746,14 +692,14 @@ nav .menu-btn {
   transition: 1.5s 0.1s all;
 }
 
-.leftBox{
+.leftBox {
   right: 52vw;
- visibility: hidden;
- height: 0px;
+  visibility: hidden;
+  height: 0px;
 }
 
-.rightBox{
+.rightBox {
   left: 52vw;
-   visibility: hidden;
-   height: 0px;
+  visibility: hidden;
+  height: 0px;
 }

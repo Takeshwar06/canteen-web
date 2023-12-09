@@ -81,7 +81,7 @@ export default function Fooditem(props) {
       uniqueOrderId:Math.ceil(Math.random()*100000000000000+(999999999999999-100000000000000)).toString(),
       UserId:localStorage.getItem("UserId"),
       EmployeeId:EmployeeId,
-      foodQuantity:foodCount,
+      foodQuantity:Number(foodCount),
       foodimg:food.foodimg,
       foodname:food.foodname,
       foodprice:food.foodprice,
@@ -90,17 +90,23 @@ export default function Fooditem(props) {
       localStorage.setItem("cardFoods",JSON.stringify(cardFoods));
      }else{
       const cardFoods=JSON.parse(localStorage.getItem("cardFoods"));
-      const singleFood={
-      uniqueOrderId:Math.ceil(Math.random()*100000000000000+(999999999999999-100000000000000)).toString(),
-      UserId:localStorage.getItem("UserId"),
-      EmployeeId:EmployeeId,
-      foodQuantity:foodCount,
-      foodimg:food.foodimg,
-      foodname:food.foodname,
-      foodprice:food.foodprice,
-      _id:food._id
+      const indexOfFood = cardFoods.findIndex(obj => obj._id == food._id);
+      console.log(indexOfFood);
+      if (indexOfFood !== -1) {
+        cardFoods[indexOfFood].foodQuantity = cardFoods[indexOfFood].foodQuantity + Number(foodCount);
+      }else{
+        const singleFood={
+          uniqueOrderId:Math.ceil(Math.random()*100000000000000+(999999999999999-100000000000000)).toString(),
+          UserId:localStorage.getItem("UserId"),
+          EmployeeId:EmployeeId,
+          foodQuantity:Number(foodCount),
+          foodimg:food.foodimg,
+          foodname:food.foodname,
+          foodprice:food.foodprice,
+          _id:food._id
+          }
+          cardFoods.push(singleFood);
       }
-      cardFoods.push(singleFood);
       localStorage.setItem("cardFoods",JSON.stringify(cardFoods));
      }
     }
@@ -120,7 +126,7 @@ export default function Fooditem(props) {
 
 <div id="dishes"  className="my-3 ">
                         <div id="logo">
-                            <img src={`/upload/${food.foodimg}`} alt="" srcSet=""/>
+                            <img src={food.foodimg} alt="" srcSet=""/>
                         </div>
                         <div id="dishName" className="dname">
                             <label htmlFor="" id="name">{food.foodname}:&nbsp;</label>

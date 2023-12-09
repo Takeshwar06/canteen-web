@@ -1,10 +1,10 @@
 import React from 'react'
 import {print} from 'react-html2pdf'
-export default function IssueTable({issueItem}) {
+export default function IssueTable({issueItem,index}) {
     console.log(issueItem);
   return (
     <>   
-    <div className='cantainer' id='jsx-template'> 
+    <div className='cantainer' id={`jsx-template${index}`}> 
  <h4 className='mx-3 my-2 text-center' style={{color:'red'}}>Issue-{new Date(issueItem.date).toString().substring(0,15)}</h4>
             <div style={{}}>
            
@@ -45,7 +45,7 @@ export default function IssueTable({issueItem}) {
  </div>
  </div>
  <button style={{margin:"10px",position:'relative',left:'13vw',padding:'0px 8px',fontSize:"20px",border:"1px solid black"
-,borderRadius:"5px",backgroundColor:"#7be26d"}} className="mx-4" onClick={()=>print("stockIssueReport","jsx-template")}>print</button>
+,borderRadius:"5px",backgroundColor:"#7be26d"}} className="mx-4" onClick={()=>print("stockIssueReport",`jsx-template${index}`)}>print</button>
  <hr />
  </>
 

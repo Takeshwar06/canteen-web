@@ -23,13 +23,16 @@ export default function Updatefood() {
 
   const foodAvailable = async (id, available) => {
     // console.log("foodavbl",id,available);
+    const tempFoods=[...foods];
+    foods.forEach((food,index)=>{
+      if(food._id==id){
+        tempFoods[index].foodAvailable=available;
+        setfoods(tempFoods);
+      }
+    })
     let response = await axios.post(`${updateAvailableRoute}/${id}`, {
       foodAvailable: available
     })
-    if(response.data.acknowledged){
-      showAllFoods();
-    }
-    // navigate("/updatefood")
   }
 
   const handleSearchChange=(e)=>{
@@ -64,7 +67,7 @@ export default function Updatefood() {
                     <div className="row">
                       <div className="dishDetails">
                         <div className="dishImg">
-                          <img src={`/upload/${food.foodimg}`} alt="" srcSet="" />
+                          <img src={food.foodimg} alt="" srcSet="" />
                         </div>
                         <div className="dishInfo">
                           <div className="Name">Name :
@@ -100,7 +103,7 @@ export default function Updatefood() {
                     <div className="row">
                       <div className="dishDetails">
                         <div className="dishImg">
-                          <img src={`/upload/${food.foodimg}`} alt="" srcSet="" />
+                          <img src={food.foodimg} alt="" srcSet="" />
                         </div>
                         <div className="dishInfo">
                           <div className="Name">Name :

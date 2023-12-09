@@ -51,7 +51,7 @@ export default function FoodState(props) {
       currency: "INR",
       name: "Smart-Canteen",
       description: "Test Transaction",
-      image: '../../../../public/images/rungtaLogo.jpg',
+      image: 'https://res.cloudinary.com/do3fiil0d/image/upload/v1701536784/smartCanteenLogo_tbtynk.jpg',
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: paymentVarification,
       prefill: {

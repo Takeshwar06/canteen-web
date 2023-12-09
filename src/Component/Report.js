@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { getAllFoodsRoute, getAllOrderForEmployee,Head } from '../utils/APIRoutes';
 import FoodTable from './FoodTable';
+import Spin from './Spin';
 // implement startingdate to ending date (start-00:00:00.000Z to end-23:59:59:999Z)
 export default function Report() {
   const [foodMap,setFoodMap]=useState(undefined);
@@ -11,6 +12,7 @@ export default function Report() {
   const [inputDate,setInputDate]=useState({inpStartingDate:"",inpEndingDate:""})
   const [dateIncreament,setDateIncreament]=useState({increamentDay:0,increamentMonth:0,increamentYear:0})
   const [orderArray,setOrderArray]=useState([])
+  const [isLoading,setIsLoading]=useState(false);
     const searchQuery=useSearchParams()[0]
     const navigate=useNavigate()
      useEffect(()=>{
@@ -20,6 +22,7 @@ export default function Report() {
      },[])
    const handleFoodMap=async(e)=>{
     e.preventDefault();
+    setIsLoading(true);
     setRealFood(undefined)
     // setOrderArray();
       // create Map for foodname and price quaintity
@@ -66,7 +69,7 @@ export default function Report() {
             Head,day,month,year,wise
           }) 
 
-          setOrderArray(data);}
+          setOrderArray(data);setIsLoading(false)}
        }
        else if(wise==="month"){
           setDateIncreament({...dateIncreament,increamentMonth:dateIncreament.increamentMonth+1})
@@ -81,7 +84,7 @@ export default function Report() {
         if(month<=12)  {const {data}=await axios.post(getAllOrderForEmployee,{
             Head,month,year,wise
           }) 
-          setOrderArray(data);}
+          setOrderArray(data);setIsLoading(false)}
        }
        else if(wise==="year"){
           setDateIncreament({...dateIncreament,increamentYear:dateIncreament.increamentYear+1})
@@ -90,7 +93,7 @@ export default function Report() {
           const {data}=await axios.post(getAllOrderForEmployee,{
             Head,year,wise
           }) 
-          setOrderArray(data);
+          setOrderArray(data);setIsLoading(false)
        }
    }
 
@@ -132,7 +135,7 @@ export default function Report() {
        const {data}=await axios.post(getAllOrderForEmployee,{
         Head,day,month,year,endDay,endMonth,endYear
        })
-       setOrderArray(data);
+       setOrderArray(data);setIsLoading(false)
      }
      
      featchData();
@@ -144,7 +147,7 @@ export default function Report() {
         const {data}=await axios.post(getAllOrderForEmployee,{
           Head,day,month,year,wise
         }) 
-        setOrderArray(data);
+        setOrderArray(data);setIsLoading(false)
         setDateIncreament({
           increamentDay:day+1,
           increamentMonth:month,
@@ -155,7 +158,7 @@ export default function Report() {
         const {data}=await axios.post(getAllOrderForEmployee,{
           Head,month,year,wise
         }) 
-        setOrderArray(data);
+        setOrderArray(data);setIsLoading(false)
         setDateIncreament({
           increamentMonth:month+1,
           increamentYear:year
@@ -165,7 +168,7 @@ export default function Report() {
         const {data}=await axios.post(getAllOrderForEmployee,{
           Head,year,wise
         }) 
-        setOrderArray(data);
+        setOrderArray(data);setIsLoading(false)
         setDateIncreament({
           increamentYear:year+1
         })
@@ -224,7 +227,9 @@ export default function Report() {
 <input  required type="radio" name="wise" value="year" onChange={e=>setWise(e.target.value)} />
    <button className="btn btn-success mx-2" type='submit'>get</button>
 </form>
-
+ 
+  {/* Loading */}
+ {isLoading&&<Spin/>}
   {realFood&&<FoodTable orderArray={orderArray} realFood={realFood}/>}
 
   {/* <button onClick={featchMoreData} className="btn btn-success">butoon</button> */}

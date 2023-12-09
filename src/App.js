@@ -16,8 +16,9 @@ import { useState } from "react";
 import axios from "axios";
 import { getCoin } from "./utils/APIRoutes";
 import StockReport from "./Component/StockReport";
-import Test from "./Component/Test";
+import Scanner from "./Component/Scanner";
 import AddToCard from "./Component/AddToCard";
+import Timmer from "./Timmer";
 // https://canteenfrontend-nwpn.onrender.com
 function App() {
     const [webSlider,setWebSlider]=useState(false);
@@ -79,7 +80,7 @@ function App() {
           <Route exact path="/addfood" element={<Addfood/>} ></Route>
           <Route exact path="/updatefood" element={<Updatefood  />} ></Route>
           {/* <Route exact path="/message" element={<Message socket={socket} />} ></Route> */}
-          <Route exact path="/test" element={<Test featchCoin={featchCoin} setpopup={setpopup} />} ></Route>
+          <Route exact path="/scanner" element={<Scanner featchCoin={featchCoin} setpopup={setpopup} />} ></Route>
           <Route exact path="/message" element={<Usermsg featchCoin={featchCoin} setpopup={setpopup} />} ></Route>
           <Route exact path="/foodreport" element={<Report  />} ></Route>
           <Route exact path="/card" element={<AddToCard  />} ></Route>
@@ -87,6 +88,7 @@ function App() {
           <Route exact path="/stockentry" element={<StockEntry/>}></Route>
           <Route exact path="/stockissue" element={<StockIssue/>}></Route>
           <Route exact path="/stockreport" element={<StockReport/>}></Route>
+          <Route exact path="/timmer" element={<Timmer/>}></Route>
         </Routes>
         </div>
         
@@ -94,7 +96,8 @@ function App() {
       </Router>     
       
 
-      <div id="allBox" className={`allBox ${popup&&"open-popup"}`} >
+     <div className="coin-popup">
+     <div  id="allBox" className={`allBox ${popup&&"open-popup"}`} >
         <img className="images my-3" src="../images/coin.png" alt="" srcset=""/>
         <h3 className="text-center">{!userId?0:userId} Rs</h3>
         <hr/>
@@ -105,11 +108,12 @@ function App() {
         <button style={{backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black",padding:"2px 8px"}} onClick={handleSend}>login</button><br />
         
         </div>
-          <p style={{textAlign:"center",color:"red",fontSize:"20px"}}>if you have coin then remeber your id to login</p>
+          <p style={{textAlign:"center",color:"red",}}>if you have coin then remeber your id to login</p>
         <div style={{display:"flex",alignItems:"right",justifyContent:"right"}}>
         <button style={{marginRight:"20px",position:"relative",top:'-40px',padding:"2px 8px",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className="my-5 " onClick={handlClosePop}>close</button>
         </div>
     </div>
+     </div>
   </FoodState>
   );
 }

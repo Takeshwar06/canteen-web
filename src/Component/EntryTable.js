@@ -1,12 +1,12 @@
 import React from 'react'
 import { Fragment } from 'react';
 import {print} from 'react-html2pdf'
-export default function EntryTable({entryItem}) {
+export default function EntryTable({entryItem,index}) {
     console.log(entryItem);
   return (
    
        <Fragment key={entryItem._id}>
-        <div id='jsx-template' >
+        <div id={`jsx-template${index}`} >
      <h4 className='mx-3 my-2 text-center' style={{color:'red'}}>Entry{new Date(entryItem.date).toString().substring(0,15)}</h4>
             <div id="stock">
                 <table>
@@ -42,7 +42,7 @@ export default function EntryTable({entryItem}) {
 
     </div></div>
     <button style={{margin:"10px",position:'relative',left:'13vw',padding:'0px 8px',fontSize:"20px",border:"1px solid black"
-     ,borderRadius:"5px",backgroundColor:"#7be26d"}} className="mx-4" onClick={()=>print("stockEntryReport","jsx-template")}>print</button>
+     ,borderRadius:"5px",backgroundColor:"#7be26d"}} className="mx-4" onClick={()=>print("stockEntryReport",`jsx-template${index}`)}>print</button>
     </Fragment>
 
   )

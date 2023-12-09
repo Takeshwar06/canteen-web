@@ -38,7 +38,7 @@ const imgUploadToCloud=(e)=>{
     body:formDate
   }).then((res)=>res.json())
   .then((data)=>{
-    setFood({...food,foodimg:data.url})
+    setFood({...food,foodimg:`https${data.url.substring(4)}`})
     setImgUploaded(true);
 
   }) // set image 

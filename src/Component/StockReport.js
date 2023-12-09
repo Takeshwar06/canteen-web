@@ -7,12 +7,15 @@ import styled from 'styled-components'
 import EntryTable from './EntryTable'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import Spin from './Spin'
 
 export default function StockReport() {
   const [inputDate,setInputDate]=useState({inpStartingDate:"",inpEndingDate:""})
   const [stockType,setStockType]=useState();
   const [entryArray,setEntryArray]=useState([])
+  const [noMoreData,setNoMoreData]=useState(undefined)
   const [issueArray,setIssueArray]=useState([])
+  const [isLoading,setIsLoading]=useState(false);
   const navigate=useNavigate();
   // const []
    
@@ -31,6 +34,8 @@ export default function StockReport() {
   }
 
   const handleSubmit=async(e)=>{
+    setIsLoading(true);
+    setNoMoreData(undefined)
     e.preventDefault();
     // take start date and create new Date object
     const inpStartingDate=new Date(inputDate.inpStartingDate);
@@ -67,13 +72,27 @@ export default function StockReport() {
       setIssueArray([])
       console.log(stockType)
       const data=await axios.post(getAllStockEntry,{day,month,year,endDay,endMonth,endYear})
-      setEntryArray(data.data);
+      if(data.data.length<1){
+        setNoMoreData("no more data to show")
+      }
+      else{
+        setEntryArray(data.data);
+        setNoMoreData(undefined)
+      }
+      setIsLoading(false)
     }
     else{
       setEntryArray([])
     console.log(stockType)
     const data=await axios.post(getAllStockIssue,{day,month,year,endDay,endMonth,endYear})
-    setIssueArray(data.data);
+    if(data.data.length<1){
+      setNoMoreData("no more data to show")
+    }
+    else{
+      setIssueArray(data.data);
+      setNoMoreData(undefined)
+    }
+    setIsLoading(false);
   }
 }
 
@@ -101,23 +120,25 @@ export default function StockReport() {
         <div id="allStock">
 
 {
-  issueArray.length>0&&issueArray.map((issueItem)=>{
+  issueArray.length>0&&issueArray.map((issueItem,index)=>{
     return(
-<IssueTable issueItem={issueItem}/>
+<IssueTable issueItem={issueItem} index={index}/>
     )
   })
 }
 
 {
-  entryArray.length>0&&entryArray.map((entryItem)=>{
+  entryArray.length>0&&entryArray.map((entryItem,index)=>{
     return(
-      <EntryTable entryItem={entryItem} />
+      <EntryTable entryItem={entryItem} index={index}/>
     )
   })
 }
              </div>
        </div>
 </Container>
+{noMoreData&&<h5 style={{textAlign:"center",marginTop:"5px",color:"red"}}>{noMoreData}</h5>}
+{isLoading&&<Spin/>}
 </div>
     </>
   )
