@@ -1,0 +1,251 @@
+.review_page_container {
+  display: flex;
+  width: 100%;
+  font-family: "overpass", "signika negative";
+  margin: auto;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+/* headings */
+.food_detail_heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+/* lefrt part of container */
+.product_container {
+  position: sticky;
+  top: 100px;
+  max-width: 36rem;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(218, 215, 215);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.product_image {
+  width: 100%;
+}
+.product_image img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+.cart_add {
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add_cart_button {
+  padding: 0.6rem 0;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  background-color: #fb641b;
+  text-transform: uppercase;
+  color: white;
+  font-family: "signika negative";
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+/* right part of laptop */
+.product_summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  gap: 2rem;
+  padding: 2rem;
+}
+.product_info_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 3rem;
+}
+.product_info {
+    width: 100%;
+    background: #f2f2f2;
+    padding: 1rem;
+    margin-right: 0.5rem;
+}
+.product_rating {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    width: 100%;
+    background: #f2f2f2;
+    padding: 1rem;
+}
+.detail {
+  display: flex;
+  align-items: center;
+}
+.avarage_star {
+  font-size: 1rem;
+}
+/* review from user */
+.user_comments_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.product_review_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    padding: 1rem;
+    background-color: #f2f2f2;
+}
+.rating_details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+.star_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.small-rating-star {
+  font-size: 0.8rem;
+}
+.user_comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0.7rem 0 0.8rem 0;
+  border-bottom: 1px solid rgb(204, 201, 201);
+}
+.user_details {
+  display: flex;
+
+  justify-content: start;
+  gap: 0.4rem;
+}
+.user_name {
+  font-size: 1rem;
+  position: relative;
+  top: 2px;
+}
+.upload_images {
+  padding-top: 0.4rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.user_image {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+/* uploaded images from user */
+.upload_images {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.upload_image {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1116px) {
+  .review_page_container {
+    width: 100%;
+  }
+  .product_info_container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0rem;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 859px) {
+  .review_page_container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .product_info{
+    margin-right: 0.7rem;
+  }
+  .product_container {
+    position: static;
+    margin: auto;
+    width: 100%;
+    border: none;
+  }
+  .product_summary {
+    width: 100%;
+  }
+}
+@media (max-width: 513px) {
+  .product_info_container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .rating_container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .product_info {
+    width: 100%;
+  }
+  .product_rating {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+  }
+  .range_input{
+    width: 15rem;
+  }
+  .product_container {
+    padding: 0.5rem;
+  }
+  .product_summary {
+    padding: 1rem;
+  }
+  .food_detail_heading {
+    font-size: 1.2rem;
+  }
+  .cart_add {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: calc(100vh - 70px);
+    z-index: 10;
+  }
+  .add_cart_button {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+@media (max-width: 387px){
+    .product_summary {
+    padding: 1rem;
+}
+    .range_input{
+        width: 14rem;
+    }
+}

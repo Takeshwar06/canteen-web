@@ -5,15 +5,17 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import styled from 'styled-components';
 import foodContext from './context/foods/foodContext';
-import { addCoin, expireQr, getAllOrderForEmployee, getCoin, host, updateCoin, updateOrder, updateReject, updateTake } from '../utils/APIRoutes';
+import {  coinPlus, expireQr, getAllOrderForEmployee, host, updateOrder, updateReject, updateTake } from '../utils/APIRoutes';
 //import "../../src/css/message.css"
 import { useContext } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { EmployeeId, getAllOrderForUser, updateDeleted } from '../utils/APIRoutes';
 import { useRef } from 'react';
+import Button from './Button';
+import Feedback from './Feedback';
 
 export default function Usermsg({ setpopup, featchCoin }) {
-
+  
   const socket = useRef();
   const [orders, setOrders] = useState([]);
   const { addOrder, refreshAfterAddFood } = useContext(foodContext);
@@ -21,6 +23,10 @@ export default function Usermsg({ setpopup, featchCoin }) {
   const referenceNum = searchQuery.get("reference");
   const [userOrder, setUserOrder] = useState([]);
   const [qrUrl, setQrUrl] = useState(null);
+  const [openRatingModal, setOpenRatingModal] = useState(false);
+  const [currnetFood, setCurrentFood] = useState(null);
+  const [currentOrderId, setCurrentOrderId] = useState(null);
+  const navigate=useNavigate();
 
   useEffect(() => {
     socket.current = io(host)
@@ -67,7 +73,6 @@ export default function Usermsg({ setpopup, featchCoin }) {
 
 
   // for employee
-  const navigate = useNavigate();
   async function empfetchdata() {
     const response = await axios.post(getAllOrderForEmployee)
     console.log("emp fetching start")
@@ -133,19 +138,10 @@ export default function Usermsg({ setpopup, featchCoin }) {
     const result = await axios.post(`${updateReject}/${order.uniqueOrderId}`, { rejected: true })
     console.log("result", result)
     await axios.post(`${expireQr}/${order.uniqueOrderId}`)
-
-    const presentUser = await axios.post(getCoin, { userId: order.auth[0] })
-    if (presentUser.data.length > 0) {
-      // updateCoin
-      const response = await axios.post(updateCoin, {
-        userId: presentUser.data[0].userId,
-        updatedCoin: presentUser.data[0].coin + (order.foodprice * order.foodQuantity)
-      })
-    }
-    else {
-      //  addCoin
-      const response = await axios.post(addCoin, { userId: order.auth[0], coin: order.foodprice * order.foodQuantity })
-    }
+    await axios.post(coinPlus, {
+      userId: order.auth[0],
+      updatedCoin:(order.foodprice * order.foodQuantity)
+    })
   }
 
   useEffect(() => {
@@ -229,9 +225,22 @@ export default function Usermsg({ setpopup, featchCoin }) {
     setpopup(true);
     featchCoin();
   }
+  // feedback modal
+  const ratingModal = (food_id, orderid) =>{
+    console.log(food_id, orderid);
+    setCurrentFood(food_id);
+    setCurrentOrderId(orderid)
+    setOpenRatingModal(true);
+  }
+
+  function setFoodToLocal(foodid){
+    localStorage.setItem("food_id",foodid);
+    navigate("/foodreview")
+   }
   return (<>
     {!localStorage.getItem("employee") && <Fragment>
       {/* when qr url not null */}
+      {openRatingModal&& <Feedback userOrder={userOrder} setUserOrder={setUserOrder} currentOrderId={currentOrderId} currnetFood={currnetFood} setOpenRatingModal={setOpenRatingModal}/>}
       {qrUrl && <div className='QrBox' style={{ justifyContent: "center", alignItems: "center", display: "flex", backgroundColor: "white", width: "100vw", height: "100vh", position: 'fixed', top: 0, right: 0, zIndex: 99 }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "300px", height: "400px" }}>
           <p style={{ textAlign: 'center' }}>After 2 hour QR will be expire,When food prepared</p>
@@ -250,7 +259,7 @@ export default function Usermsg({ setpopup, featchCoin }) {
                 {Order.rejected && <span className={`badge text-bg-warning`}> <b>Rejected</b> </span>}
                 <div style={{ display: "flex", marginBottom: "5px" }}>
                   <div>
-                    <img style={{ height: "125px", width: "125px" }} src={Order.foodimg} className="img-fluid rounded-start" alt="..." />
+                    <img onClick={()=>setFoodToLocal(Order.food_id)} style={{ height: "125px", width: "125px" }} src={Order.foodimg} className="img-fluid rounded-start" alt="..." />
                   </div>
                   <div style={{ marginLeft: "30px" }}>
                     <h4 className="card-title">{Order.foodname}</h4>
@@ -263,6 +272,7 @@ export default function Usermsg({ setpopup, featchCoin }) {
                   {Order.rejected && <button onClick={() => { orderDeleted(Order, index) }} className="btn btn-dark" style={{ float: "right", marginRight: "10px" }}>delete</button>}
                   {Order.placed && !Order.QRvalid && <button onClick={() => { orderDeleted(Order, index) }} className="btn btn-dark" style={{ float: "right", marginRight: "10px" }}>delete</button>}
                   {Order.QRvalid && <button onClick={() => setQrUrl(Order.QRurl)} className="btn btn-dark" style={{ float: "right", marginLeft: "10px", marginRight: "10px" }}>QR</button>}
+                  {Order.placed && <span style={{ float: "right", marginLeft: "10px", }} onClick={() => !Order.rated && ratingModal(Order.food_id, Order.uniqueOrderId)}><i className={`${Order.rated?'fa-solid fa-star':"fa-regular fa-star"}`}></i></span>}
                 </p>
                 <small className="mx-3" style={{ color: "red" }}>
                   {Order.date.toString().substring(0, 10)}
@@ -290,7 +300,7 @@ export default function Usermsg({ setpopup, featchCoin }) {
                       <div className="row">
                         <div className="dishDetails">
                           <div className="dishImg">
-                            <img style={{ marginLeft: "5px" }} src={order.foodimg} alt="" srcSet="" />
+                            <img onClick={()=>setFoodToLocal(order.food_id)} style={{ marginLeft: "5px" }} src={order.foodimg} alt="" srcSet="" />
                           </div>
                           <div className="dishInfo">
                             <div className="Name">Name :

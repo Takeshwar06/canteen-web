@@ -1,0 +1,63 @@
+.order_history_container {
+  font-family: "overpass";
+  width: 100%;
+  height: 100%;
+}
+.order_heading {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+.orders_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.order {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  /* align-items: center; */
+  min-width: 24rem;
+  max-width: 24rem;
+  overflow: hidden;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+.order_image_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_image {
+  max-width: 10rem;
+  max-height: 10rem;
+  width: 30vw;
+  height: 30vw;
+}
+.order_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+}
+.order_info h4,
+.order_info span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 500px) {
+    .order{
+        min-width: 22rem;
+    }
+  .order_image {
+    width: 9rem;
+    height: 9rem;
+  }
+}

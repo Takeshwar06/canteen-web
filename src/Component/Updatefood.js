@@ -47,6 +47,11 @@ export default function Updatefood() {
     setSearchFood(foods);
     }
   }
+
+  function setFoodToLocal(foodid){
+    localStorage.setItem("food_id",foodid);
+    navigate("/foodreview")
+   }
   return (
     <Container>
       <div id="Contents">
@@ -67,7 +72,7 @@ export default function Updatefood() {
                     <div className="row">
                       <div className="dishDetails">
                         <div className="dishImg">
-                          <img src={food.foodimg} alt="" srcSet="" />
+                          <img onClick={()=>setFoodToLocal(food._id)} src={food.foodimg} alt="" srcSet="" />
                         </div>
                         <div className="dishInfo">
                           <div className="Name">Name :

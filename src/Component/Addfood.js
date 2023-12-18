@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { addfoodRoute } from '../utils/APIRoutes'
+import { addfoodRoute, oneKeyForReturnMoney } from '../utils/APIRoutes'
 import axios from 'axios'
 import { useContext } from 'react'
 import foodContext from './context/foods/foodContext'
@@ -75,6 +75,9 @@ const handleSubmit=(e)=>{
   }
     }
 
+    const ReturnMoney = async()=>{
+      await axios.get(oneKeyForReturnMoney);
+    }
   return (
     <div className="container">
         <h2 className='my-3'>Add New Food</h2>
@@ -98,7 +101,10 @@ const handleSubmit=(e)=>{
   </div>
   <button type="submit" className={`btn btn-primary ${!imgUploaded&&"disabled"}`}>{imgUploaded===false?<i class="fa-solid fa-spinner fa-spin"></i>:"Submit"}</button>
 </form>
- <button style={{position:"relative",left:"90px",top:'-50px',backgroundColor:"blue",border:"1px solid black",borderRadius:"5px",padding:"2px 8px"}}><Link style={{textDecoration:"none",fontSize:"20px",color:"white"}} to="/stockissue">stockissue</Link></button>
+<div>
+ <button style={{backgroundColor:"blue",border:"1px solid black",borderRadius:"5px",padding:"2px 8px"}}><Link style={{textDecoration:"none",fontSize:"20px",color:"white"}} to="/stockissue">stockissue</Link></button>
+ <button style={{marginLeft:"5px",height:"35px",backgroundColor:"#67eb79",border:"1px solid black",borderRadius:"5px",padding:"2px 8px"}} onClick={ReturnMoney}>Return Money</button>
+</div>
     </div>
   )
 }

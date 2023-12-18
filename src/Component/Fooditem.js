@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { EmployeeId, getCoin, updateCoin } from '../utils/APIRoutes';
+import { EmployeeId } from '../utils/APIRoutes';
 // import { useState } from 'react';
 // import { useRef } from 'react';
 // import { useContext } from 'react';
@@ -25,52 +25,9 @@ export default function Fooditem(props) {
   const minusBtn =()=>{
     foodCount>1&&setFoodCount(foodCount-1);
   }
-  // const changeOn=useRef(null);
-  // const changeOff=useRef(null);
 
-  //  const [orderDetail,setOrderDetail]=useState({})
    const {food} =props;
-  //  const {available}=useContext(foodContext);
 
-// order by user and conformation quantity 
-
-   const conformation=async(food,foodcount)=>{
-       const useCoin=window.confirm("use coin to confirm cancel for other payment")
-       if(useCoin){
-          const isConfirm=window.confirm(`${food.foodname} - ${foodcount} buy to coin`)    
-          if(isConfirm){
-            console.log("conrif")
-            const data=await axios.post(getCoin,{userId:localStorage.getItem("UserId")})
-            console.log(data);
-            if(data.data.length>0&&data.data[0].coin>=food.foodprice*foodcount){
-              console.log("same")
-                 const coinUpdated=await axios.post(updateCoin,{
-                  userId:localStorage.getItem("UserId"),
-                  updatedCoin:(data.data[0].coin)-(food.foodprice*foodcount)
-                 })
-                 console.log(coinUpdated);
-                 if(coinUpdated.data.acknowledged===true){
-                  console.log("acknowl")
-                 localStorage.setItem("setOneFoodForOrder",JSON.stringify({food,foodcount}));
-                 navigate(`/message?reference=coin%${Math.ceil(Math.random()*100000+(999999-100000))}`)
-                 }else{window.alert("order failed try again")}
-            } else{
-              window.alert("you have not coin to buy this food")
-            }
-          }
-       }
-
-       else{
-         // razorpay coming soon
-    let isConfirm=window.confirm(`${food.foodname} - ${foodcount} please comfirm`);
-  
-    if(isConfirm){
-      // fetch api to add order 
-      paymentProcess(food,foodcount);
-      localStorage.setItem("setOneFoodForOrder",JSON.stringify({food,foodcount}));
-    }
-       }
-   }
 
    const addToCard=(food,foodCount)=>{
     console.log(food)
@@ -85,12 +42,12 @@ export default function Fooditem(props) {
       foodimg:food.foodimg,
       foodname:food.foodname,
       foodprice:food.foodprice,
-      _id:food._id
+      food_id:food._id
       })
       localStorage.setItem("cardFoods",JSON.stringify(cardFoods));
      }else{
       const cardFoods=JSON.parse(localStorage.getItem("cardFoods"));
-      const indexOfFood = cardFoods.findIndex(obj => obj._id == food._id);
+      const indexOfFood = cardFoods.findIndex(obj => obj.food_id == food._id);
       console.log(indexOfFood);
       if (indexOfFood !== -1) {
         cardFoods[indexOfFood].foodQuantity = cardFoods[indexOfFood].foodQuantity + Number(foodCount);
@@ -103,7 +60,7 @@ export default function Fooditem(props) {
           foodimg:food.foodimg,
           foodname:food.foodname,
           foodprice:food.foodprice,
-          _id:food._id
+          food_id:food._id
           }
           cardFoods.push(singleFood);
       }
@@ -111,22 +68,17 @@ export default function Fooditem(props) {
      }
     }
    }
+
+   const setFoodIdToLocal = (foodid)=>{
+    localStorage.setItem("food_id",foodid);
+    navigate("/foodreview")
+   }
   return (
     <>    
-    {/* <div className='my-3'>
-          <div className="card ">
-            <img src={`/upload/${food.foodimg}`} className="card-img-top" alt="..."/>
-            <div className="card-body">
-            <h5 className="card-title">{food.foodname} - {food.foodprice}Rs</h5>
-            <button className="btn btn-outline-danger" onClick={()=>{conformation(food)}} >add</button>
-         </div>
-    </div> 
-</div> */}
-
 
 <div id="dishes"  className="my-3 ">
                         <div id="logo">
-                            <img src={food.foodimg} alt="" srcSet=""/>
+                            <img onClick={()=>setFoodIdToLocal(food._id)} src={food.foodimg} alt="" srcSet=""/>
                         </div>
                         <div id="dishName" className="dname">
                             <label htmlFor="" id="name">{food.foodname}:&nbsp;</label>

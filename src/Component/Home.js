@@ -21,11 +21,6 @@ export default function Home() {
       }
    },[referenceNum])
   useEffect(() => {
-       // generate UserId in localStorage with condition 
-       if(!localStorage.getItem("UserId")){
-         localStorage.setItem("UserId",Math.ceil(Math.random()*1000000000+(9999999999-1000000000)))
-       }
-       
        showAllFoods();     
   },[]) 
 

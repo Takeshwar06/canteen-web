@@ -20,12 +20,12 @@ export default function CircleFood({ food }) {
                         foodimg: food.foodimg,
                         foodname: food.foodname,
                         foodprice: food.foodprice,
-                        _id: food._id
+                        food_id: food._id
                     })
                     localStorage.setItem("cardFoods", JSON.stringify(cardFoods));
                 } else {
                     const cardFoods = JSON.parse(localStorage.getItem("cardFoods"));
-                    const indexOfFood = cardFoods.findIndex(obj => obj._id == food._id);
+                    const indexOfFood = cardFoods.findIndex(obj => obj.food_id == food._id);
                     console.log(indexOfFood);
                     if (indexOfFood !== -1) {
                         cardFoods[indexOfFood].foodQuantity = cardFoods[indexOfFood].foodQuantity + Number(foodCount);
@@ -38,7 +38,7 @@ export default function CircleFood({ food }) {
                             foodimg: food.foodimg,
                             foodname: food.foodname,
                             foodprice: food.foodprice,
-                            _id: food._id
+                            food_id: food._id
                         }
                         cardFoods.push(singleFood);
                     }

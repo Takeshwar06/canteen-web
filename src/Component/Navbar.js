@@ -140,6 +140,7 @@ export default function Navbar() {
             {/* {!localStorage.getItem("employee") &&<li><a id="active" href="index.html">orderDetail</a></li>} */}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/message">OrderDetail</Link></li>}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/card">Card</Link></li>}
+            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/orderhistory">History</Link></li>}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/">Home</Link></li>}
 
             {localStorage.getItem("employee") && <>

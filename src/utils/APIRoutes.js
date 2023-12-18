@@ -5,15 +5,21 @@ export const host="https://canteen-server-8ouz.onrender.com";
 export const addfoodRoute=`${host}/api/food/addfood`
 export const getAllFoodsRoute=`${host}/api/food/getAllFoods`
 export const updateAvailableRoute=`${host}/api/food/updateAvailable`
+export const upDateRating=`${host}/api/food/upDateRating` //id
+export const getFoodById=`${host}/api/food/getFoodById` //id
 
 // api for foodorder
 export const addorder=`${host}/api/order/addorder`
 export const getAllOrderForEmployee=`${host}/api/order/getAllOrderForEmployee`
 export const getAllOrderForUser=`${host}/api/order/getAllOrderForUser`
+export const getUserOrderHistory=`${host}/api/order/getuserorderhistory`
 export const updateOrder=`${host}/api/order/updateOrder`
 export const updateDeleted=`${host}/api/order/updateDeleted`
 export const updateTake=`${host}/api/order/updateTake`
+export const upDateRated=`${host}/api/order/upDateRated` //id
 export const updateReject=`${host}/api/order/updateReject`
+export const oneKeyForReturnMoney=`${host}/api/order/onekeyforreturnmoney`
+
 // api for order through QR
 export const getOrderThroughQr=`${host}/api/order/getOrderThroughQr`//id
 export const expireQr=`${host}/api/order/expireQr`//id
@@ -38,10 +44,15 @@ export const addAllStockIssue=`${host}/api/stockIssue/addAllStockIssue`
 export const getAllStockIssue=`${host}/api/stockIssue/getAllStockIssue`
 
 // api for coin 
-export const addCoin=`${host}/api/coin/addCoin`
+// export const addCoin=`${host}/api/coin/addCoin`
+export const createCoin=`${host}/api/coin/createcoin`
 export const getCoin=`${host}/api/coin/getCoin`
-export const updateCoin=`${host}/api/coin/updateCoin`
+export const coinPlus=`${host}/api/coin/coinplus`
+export const coinMinus=`${host}/api/coin/coinminus`
 
+//api for devloper
+export const oneCoinToDev=`${host}/api/devloper/onecointodev`
+export const getDevInfo=`${host}/api/devloper/getdevinfo`
 
 export const EmployeeId="emp@authenticate"
 export const Head="head@rungta.com"

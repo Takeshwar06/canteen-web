@@ -1,0 +1,145 @@
+.feedback_container {
+  font-family: "overpass", "Signika negative";
+  width: 100%;
+  padding: 2rem;
+  min-height: 100vh;
+  transition: all 0.4s ease-in;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  z-index: 60;
+}
+.close_button{
+  position: relative;
+  left: 10rem;
+  background-color: rgb(216, 199, 216);
+  text-align: center;
+  width: 1.7rem;
+  font-size: 1.6rem;
+  height: 1.6rem;
+  border-radius: 10%;
+}
+.close_button:hover{
+  background-color: rgb(219, 205, 219);
+}
+.feedback_circle {
+  flex-direction: column;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback_form {
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: red; */
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.feedback_heading {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+.star_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.stars_box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+}
+.stars_box span {
+  font-size: 1.3rem;
+}
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.fa-star {
+  font-size: 1.5rem;
+}
+/* comments box */
+.feedback_comment {
+  width: 100%;
+}
+#comment_textarea {
+  width: 100%;
+  max-height: 4rem;
+  overflow-y: scroll;
+  padding: 0.2rem 0.5rem;
+}
+/* image upload box */
+.feedback_image {
+  width: 100%;
+}
+.low_heading {
+  font-size: 1.2rem;
+}
+#upload_image_label {
+  /* background-color: rgb(157, 165, 207); */
+  padding: 0.3rem 0;
+  background: linear-gradient(
+    to right,
+    rgb(154, 151, 202),
+    rgb(141, 194, 207),
+    rgb(121, 121, 187)
+  );
+  width: 100%;
+  color: red;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border: none;
+  transition: 0.4s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: bold;
+}
+
+.feedback_submit {
+  font-weight: bold;
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  margin: 1.5rem 0 0 0;
+  background-color: rgb(141, 192, 107);
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border: none;
+  transition: 0.4s ease-in;
+}
+.feedback_submit:hover {
+  background-color: rgb(169, 216, 140);
+}
+
+@media (max-width: 400px) {
+  .feedback_form {
+    padding: 1rem;
+  }
+  .stars {
+    position: relative;
+    top: -4px;
+    gap: 0.1rem;
+  }
+}
+@media (max-width: 336px) {
+  .stars_box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}

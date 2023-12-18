@@ -39,7 +39,7 @@ const Test = () => {
      { result&&<div style={{display:'flex',justifyContent:'center', width:"100vw",height:"100vh",backgroundColor:"white",position:"fixed",top:0,zIndex:999}}>
       <div style={{width:"250px",display:'flex',flexDirection:"column",marginTop:"30px"}}>
        <div style={{padding:"5px",border:"1px solid gray"}}>
-       <img style={{width:"100%"}} alt='...' src={result.foodimg}/>
+       <img style={{width:"100%",maxHeight:"50vh"}} alt='...' src={result.foodimg}/>
         <div style={{padding:"10px"}}>
           <h4>Name : {result.foodname}</h4>
           <h4>Quantity : {result.foodQuantity}</h4>

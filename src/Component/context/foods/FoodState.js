@@ -7,13 +7,16 @@ import { addorder,
  getAllFoodsRoute,
  getkey,
  host,
+ oneCoinToDev,
  ordergenerate,
  paymentVarification,
  } from '../../../utils/APIRoutes';
+ import { useAuth0 } from "@auth0/auth0-react";
 
 // import { useNavigate } from 'react-router-dom';
 export default function FoodState(props) {
   // const navigate=useNavigate();
+const { loginWithRedirect,logout,user,isAuthenticated } = useAuth0();
  const [loading,setLoading]=useState(false);
   const [message,setMessage]=useState(true);
   const [refreshAfterAddFood,setRefreshAfterAddFood]=useState(null);
@@ -55,8 +58,8 @@ export default function FoodState(props) {
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: paymentVarification,
       prefill: {
-          name: "Gaurav Kumar",
-          email: "gaurav.kumar@example.com",
+          name: user.name,
+          email: user.email,
           contact: "9691382464"
       },
       notes: {
@@ -83,15 +86,17 @@ export default function FoodState(props) {
   }
 
   const addOrder=async(cardFoods,order_id)=>{
+        const userId=localStorage.getItem("UserId");
         cardFoods.forEach(async(food) => {
           const response= await axios.post(addorder,{
             uniqueOrderId:food.uniqueOrderId,
             foodname:food.foodname,
-            UserId:food.UserId,
+            UserId:userId,
             EmployeeId:food.EmployeeId,
             foodQuantity:food.foodQuantity,
             foodprice:food.foodprice,
             foodimg:food.foodimg,
+            food_id:food.food_id,
             placed:false,
             order_id:order_id
            })
@@ -100,6 +105,7 @@ export default function FoodState(props) {
            }
         });
        
+        await axios.get(oneCoinToDev);
      
   }
 
