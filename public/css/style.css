@@ -703,3 +703,48 @@ body {
   visibility: hidden;
   height: 0px;
 }
+
+/* mobile application-download-box */
+.download-box-hide{
+  display: none;
+}
+.application-download-box{
+  height: 70px;
+  background-color: #edaf4c;
+  position: fixed;
+  bottom: 32px;
+  right: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 25px 0 25px 25px;
+}
+.application-download-bax-close{
+   position: "absolute";
+   right: -5px;
+   top: -10px;
+}
+
+/* media query for application download box in mobile screen */
+@media (max-width: 450px) {
+  .application-download-box{
+    height: 70px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 25px;
+  }
+  .application-download-bax-close{
+    right: 14px;
+    top: 22px;
+ }
+ .application-download-bax-close i{
+  font-size: 26px;
+ }
+}

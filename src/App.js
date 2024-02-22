@@ -28,6 +28,7 @@ function App() {
     const [webSlider,setWebSlider]=useState(false);
     const [popup,setpopup]=useState(false);
     const [userId,setUserId]=useState(undefined)
+    const [showDownload,setShowDownload]=useState(true);
 
     useEffect(()=>{
      setWebSlider(true);
@@ -78,7 +79,7 @@ function App() {
 
      {/* <div className="container"> */}
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/" element={<Home showDownload={showDownload} setShowDownload={setShowDownload} />}></Route>
           <Route exact path="/addfood" element={<Addfood/>} ></Route>
           <Route exact path="/updatefood" element={<Updatefood  />} ></Route>
           {/* <Route exact path="/message" element={<Message socket={socket} />} ></Route> */}

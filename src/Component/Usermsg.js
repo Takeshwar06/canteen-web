@@ -314,7 +314,7 @@ export default function Usermsg({ setpopup, featchCoin }) {
                               <label htmlFor="">Price : </label>
                               <label htmlFor="">{order.foodprice * order.foodQuantity}</label>
                             </div>
-                            <p style={{ fontSize: "15px" }}>id {order.uniqueOrderId}</p>
+                            {/* <p style={{ fontSize: "15px" }}>id {order.uniqueOrderId}</p> */}
                           </div>
                         </div>
                         <div className="operationBtn">
