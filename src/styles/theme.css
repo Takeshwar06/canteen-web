@@ -1,0 +1,36 @@
+/* main colors and variables used in whole app */
+
+:root {
+  /* brand colors */
+  --primary: #ff5a1f;
+  --primary-dark: #e0470f;
+  --primary-light: #fff1ea;
+  --accent: #ffb400;
+
+  /* surfaces */
+  --bg: #fff8f2;
+  --surface: #ffffff;
+
+  /* text */
+  --text: #1a1a1a;
+  --text-muted: #7a6e66;
+  --text-light: #a99e96;
+  --border: #eaddd3;
+
+  /* status */
+  --success: #2e9e5b;
+  --danger: #e23b3b;
+
+  /* fonts */
+  --font: 'Overpass', sans-serif;
+  --heading-font: 'Bree Serif', serif;
+
+  /* radius */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+
+  /* shadow */
+  --shadow: 0 6px 18px rgba(60, 40, 25, 0.08);
+  --shadow-sm: 0 1px 3px rgba(60, 40, 25, 0.06);
+}
