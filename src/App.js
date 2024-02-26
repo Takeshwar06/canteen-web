@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
 import {BrowserRouter as Router,Routes,Route,
 } from "react-router-dom";
-import Addfood from "./Component/Addfood";
-import Home from "./Component/Home";
-import Message from "./Component/Message";
-import Updatefood from "./Component/Updatefood";
-import Navbar from "./Component/Navbar"; 
-import FoodState from "./Component/context/foods/FoodState";
-import Usermsg from "./Component/Usermsg";
-// import Paymentsucess from "./Component/Paymentsucess"
-import Report from "./Component/Report";
-import StockEntry from "./Component/StockEntry";
-import StockIssue from "./Component/StockIssue";
+import Addfood from "./pages/Addfood";
+import Home from "./pages/Home";
+import Message from "./pages/Message";
+import Updatefood from "./pages/Updatefood";
+import Navbar from "./components/Navbar";
+import FoodState from "./context/foods/FoodState";
+import Usermsg from "./pages/Usermsg";
+// import Paymentsucess from "./pages/Paymentsucess"
+import Report from "./pages/Report";
+import StockEntry from "./pages/StockEntry";
+import StockIssue from "./pages/StockIssue";
 import { useState } from "react";
 import axios from "axios";
 import { createCoin, getCoin } from "./utils/APIRoutes";
-import StockReport from "./Component/StockReport";
-import Scanner from "./Component/Scanner";
-import AddToCard from "./Component/AddToCard";
-import Timmer from "./Timmer";
-import FoodReview from "./Component/FoodReview";
-import OrderHistory from "./Component/OrderHistory";
+import StockReport from "./pages/StockReport";
+import Scanner from "./pages/Scanner";
+import AddToCard from "./pages/AddToCard";
+import Timmer from "./pages/Timmer";
+import FoodReview from "./pages/FoodReview";
+import OrderHistory from "./pages/OrderHistory";
 import { useAuth0 } from "@auth0/auth0-react";
 // https://canteenfrontend-nwpn.onrender.com
 function App() {

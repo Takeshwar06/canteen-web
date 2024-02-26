@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { getAllFoodsRoute, getAllOrderForEmployee,Head } from '../utils/APIRoutes';
-import FoodTable from './FoodTable';
-import Spin from './Spin';
+import FoodTable from '../components/FoodTable';
+import Spin from '../components/Spin';
 // implement startingdate to ending date (start-00:00:00.000Z to end-23:59:59:999Z)
 export default function Report() {
   const [foodMap,setFoodMap]=useState(undefined);

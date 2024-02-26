@@ -9,8 +9,8 @@ import { EmployeeId } from '../utils/APIRoutes';
 // import { useState } from 'react';
 // import { useRef } from 'react';
 // import { useContext } from 'react';
-// import foodContext from './context/foods/foodContext';
-import foodContext from './context/foods/foodContext';
+// import foodContext from '../context/foods/foodContext';
+import foodContext from '../context/foods/foodContext';
 
 export default function Fooditem(props) {
 

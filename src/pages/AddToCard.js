@@ -6,8 +6,8 @@ import { EmployeeId, coinMinus, createCoin, getCoin,  } from '../utils/APIRoutes
 // import { useState } from 'react';
 // import { useRef } from 'react';
 // import { useContext } from 'react';
-// import foodContext from './context/foods/foodContext';
-import foodContext from './context/foods/foodContext';
+// import foodContext from '../context/foods/foodContext';
+import foodContext from '../context/foods/foodContext';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import './AddToCard.css';

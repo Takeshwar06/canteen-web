@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { addfoodRoute, oneKeyForReturnMoney } from '../utils/APIRoutes'
 import axios from 'axios'
 import { useContext } from 'react'
-import foodContext from './context/foods/foodContext'
+import foodContext from '../context/foods/foodContext'
 import { useEffect } from 'react'
 import { useNavigate ,Link} from 'react-router-dom'
 export default function Addfood() {

@@ -2,12 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { getAllStockEntry, getAllStockIssue } from '../utils/APIRoutes'
-import IssueTable from './IssueTable'
+import IssueTable from '../components/IssueTable'
 import styled from 'styled-components'
-import EntryTable from './EntryTable'
+import EntryTable from '../components/EntryTable'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import Spin from './Spin'
+import Spin from '../components/Spin'
 
 export default function StockReport() {
   const [inputDate,setInputDate]=useState({inpStartingDate:"",inpEndingDate:""})

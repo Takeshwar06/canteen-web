@@ -1,142 +1,88 @@
-import axios from 'axios'
+import axios from 'axios';
 import React from 'react'
-import styled from 'styled-components'
-import { useEffect } from 'react'
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { updateAvailableRoute } from '../utils/APIRoutes'
-import foodContext from './context/foods/foodContext'
 import { useState } from 'react'
-
-export default function Updatefood() {
-  const [searchTerm,setSearchTerm]=useState("");
-  const [searchFood,setSearchFood]=useState([])
+import { useEffect } from 'react'
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { getAllOrderForEmployee, updateOrder } from '../utils/APIRoutes';
+import { useContext } from 'react';
+import foodContext from '../context/foods/foodContext';
+// import "../../src/css/message.css"
+export default function Message({socket}) {
+  const {message}=useContext(foodContext);
   const navigate = useNavigate();
-  const { foods,setfoods, showAllFoods } = useContext(foodContext)
-  // to use showAllFoods();
+  const [orders, setOrders] = useState([]);
+  async function fetchdata() {
+    const response = await axios.post(getAllOrderForEmployee)
+    setOrders(response.data);
+  }
   useEffect(() => {
     if (localStorage.getItem("employee")) {
-      navigate("/updatefood");
     } else { navigate("/") }
-    showAllFoods();
+    fetchdata();
   }, [])
-
-  const foodAvailable = async (id, available) => {
-    // console.log("foodavbl",id,available);
-    const tempFoods=[...foods];
-    foods.forEach((food,index)=>{
-      if(food._id==id){
-        tempFoods[index].foodAvailable=available;
-        setfoods(tempFoods);
-      }
-    })
-    let response = await axios.post(`${updateAvailableRoute}/${id}`, {
-      foodAvailable: available
-    })
-  }
-
-  const handleSearchChange=(e)=>{
-    setSearchTerm(e.target.value);
-    if(e.target.value!==""){
-      const newFoodItem=foods.filter((element)=>{
-        return element.foodname.toLowerCase().includes(e.target.value.toLowerCase());
+  useEffect(()=>{
+    if(socket.current){
+      socket.current.on("recieve-order",(realTimeOrder)=>{
+        console.log(realTimeOrder);
       })
-      setSearchFood(newFoodItem);
     }
-    else{
-    setSearchFood(foods);
+  },[])
+  const upDateOrder = async (order) => {
+
+    let response = await axios.post(`${updateOrder}/${order._id}`, { placed: true })
+    if (response.data.acknowledged === true) {
+      fetchdata();
     }
   }
-
-  function setFoodToLocal(foodid){
-    localStorage.setItem("food_id",foodid);
-    navigate("/foodreview")
-   }
   return (
     <Container>
       <div id="Contents">
         <div className="mainHead">
-          <h2>Older Messages : </h2>
-          <div id="search" className="searching">
-                            <input  value={searchTerm}onChange={handleSearchChange} className='mx-3' style={{borderRadius:"10px 10px 10px 10px"}} type="text" name="search" id="searchTxt" placeholder="search your favorite dish"/>
-                          
-                        </div>
+          <h1>Older Messages : </h1>
           <div id="Allmessages">
             <div className="messageBox">
-            {searchTerm.length<1 && foods.map((food) => {
+              {orders.map((order) => {
                 return (<>
 
-                  <div className="showing my-2" key={food._id}>
+                  <div className="showing my-2" key={order._id}>
 
-     
+                    {/* <div className="heads">
+    <h2>Pendings Order Details</h2>
+</div> */}
                     <div className="row">
                       <div className="dishDetails">
                         <div className="dishImg">
-                          <img onClick={()=>setFoodToLocal(food._id)} src={food.foodimg} alt="" srcSet="" />
+                          <img src="/images/dosa.jpg" alt="" srcSet="" />
                         </div>
                         <div className="dishInfo">
                           <div className="Name">Name :
-                            <label htmlFor="">{food.foodname}</label>
+                            <label htmlFor="">{order.foodname}</label>
                           </div>
-                         
-                          <div className="price">
-                            <label htmlFor="">Price : </label>
-                            <label htmlFor="">{food.foodprice}</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="operationBtn">
-                        <div className="btn">
-                         {food.foodAvailable&&<button  style={{color:"red",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
-                        </div>
-                        <div className="btn">
-                          {!food.foodAvailable&&<button style={{backgroundColor:"rgb(142 223 193)"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </>)
-              })
-              }
-
-{/* search food array */}
-{searchTerm.length>0 && searchFood.map((food) => {
-                return (<>
-
-                  <div className="showing my-2" key={food._id}>
-
-                    <div className="row">
-                      <div className="dishDetails">
-                        <div className="dishImg">
-                          <img src={food.foodimg} alt="" srcSet="" />
-                        </div>
-                        <div className="dishInfo">
-                          <div className="Name">Name :
-                            <label htmlFor="">{food.foodname}</label>
-                          </div>
-                          {/* <div className="Quantity">
+                          <div className="Quantity">
                             <label htmlFor="">Qty : </label>
-                            <label htmlFor="">{food.foodQuantity}</label>
-                          </div> */}
+                            <label htmlFor="">{order.foodQuantity}</label>
+                          </div>
                           <div className="price">
                             <label htmlFor="">Price : </label>
-                            <label htmlFor="">{food.foodprice}</label>
+                            <label htmlFor="">{order.foodprice*order.foodQuantity}</label>
                           </div>
                         </div>
                       </div>
                       <div className="operationBtn">
                         <div className="btn">
-                         {food.foodAvailable&&<button  style={{color:"red",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
+                          <button><a href="#">Take</a></button>
                         </div>
                         <div className="btn">
-                          {!food.foodAvailable&&<button style={{backgroundColor:"rgb(142 223 193)"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
+                          <button onClick={() => { upDateOrder(order) }}><a>Complete</a></button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </>)
-              })
+                </>
+                )
               }
+              )}
             </div>
           </div>
         </div>
@@ -146,8 +92,6 @@ export default function Updatefood() {
 }
 
 const Container=styled.div`
-
-
 * {
     padding: 0;
     margin: 0;
@@ -362,11 +306,11 @@ input[type="submit"] {
 .btn button {
     margin: 15px;
     padding: 2px 16px;
-    border: 1px solid black;
+    border: none;
     background: none;
     /*background-color: rgb(211 193 186); */
     background-color: rgb(33, 219, 42);
-    border-radius: 5px;
+    border-radius: 10px;
     transition: all 0.8s ease;
 }
 
@@ -429,25 +373,5 @@ input[type="submit"] {
         left: 1rem;
         top: -8px;
     }
-}
-@media only screen and (max-width : 399px) {
-  .row{
-    margin-left: -75px;
-    width: 205%;
-  }
-  .dishInfo {
-    margin-left: 1px;
-    word-spacing: 1px;
-    font-size: 1.7rem;
-}
-.Name{
-  font-size: 1.5rem;
-}
-#Contents h1 {
-    font-size: 1.9rem;
-}
-.dishInfo label{
-  font-size: 1.5rem;
-}
 }
 `

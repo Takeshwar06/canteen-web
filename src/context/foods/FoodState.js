@@ -10,7 +10,7 @@ import { addorder,
  oneCoinToDev,
  ordergenerate,
  paymentVarification,
- } from '../../../utils/APIRoutes';
+ } from '../../utils/APIRoutes';
  import { useAuth0 } from "@auth0/auth0-react";
 
 // import { useNavigate } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react';
-import foodContext from './context/foods/foodContext';
+import foodContext from '../context/foods/foodContext';
 import { EmployeeId } from '../utils/APIRoutes';
 
 export default function CircleFood({ food }) {

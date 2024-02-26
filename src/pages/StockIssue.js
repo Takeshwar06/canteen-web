@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { allinventoryitem } from '../utils/APIRoutes'
-import StockIssueItem from './StockIssueItem'
+import StockIssueItem from '../components/StockIssueItem'
 
 export default function StockIssue() {
     const [inventoryItem,setInventoryItem]=useState([])

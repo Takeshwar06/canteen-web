@@ -4,15 +4,15 @@ import React, { Fragment } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import styled from 'styled-components';
-import foodContext from './context/foods/foodContext';
+import foodContext from '../context/foods/foodContext';
 import {  coinPlus, expireQr, getAllOrderForEmployee, host, updateOrder, updateReject, updateTake } from '../utils/APIRoutes';
 //import "../../src/css/message.css"
 import { useContext } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { EmployeeId, getAllOrderForUser, updateDeleted } from '../utils/APIRoutes';
 import { useRef } from 'react';
-import Button from './Button';
-import Feedback from './Feedback';
+import Button from '../components/Button';
+import Feedback from '../components/Feedback';
 
 export default function Usermsg({ setpopup, featchCoin }) {
   

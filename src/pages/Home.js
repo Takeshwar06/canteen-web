@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useContext } from 'react'
-import foodContext from './context/foods/foodContext'
-import Fooditem from './Fooditem';
-import CircleFood from './CircleFood';
+import foodContext from '../context/foods/foodContext'
+import Fooditem from '../components/Fooditem';
+import CircleFood from '../components/CircleFood';
 import { host } from '../utils/APIRoutes';
-import Spin from './Spin'
+import Spin from '../components/Spin'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 export default function Home({ setShowDownload, showDownload }) {

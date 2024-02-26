@@ -4,7 +4,7 @@ import "./FoodReview.css";
 import { useNavigate } from "react-router-dom";
 import { EmployeeId, getFoodById } from "../utils/APIRoutes";
 import axios from "axios";
-import Spin from './Spin'
+import Spin from '../components/Spin'
 
 const FoodReview = () => {
   const navigate = useNavigate();
