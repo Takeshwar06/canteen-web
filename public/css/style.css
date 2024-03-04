@@ -29,8 +29,11 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
+  font-family: var(--heading-font);
+  color: var(--text);
   font-size: 1.8rem;
-  margin-top: 1%;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
   padding-left: 5vw;
 }
 /* container of only circluar food */
@@ -68,18 +71,24 @@ body {
 
 #allFoods .food img {
   transition: all 0.2s ease-in;
-  border: 2px solid black;
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-sm);
   border-radius: 100%;
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 .food img:hover {
   cursor: pointer;
-  transform: scale(1.04);
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px var(--primary), var(--shadow-md);
 }
 .label label {
-  font-family: "overpasss", "signika negative";
+  font-family: var(--font);
   text-transform: capitalize;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 .food img:active {
   cursor: pointer;
@@ -108,8 +117,10 @@ body {
   text-align: center;
 }
 #Special-Heading {
+  font-family: var(--heading-font);
   font-size: 2.1rem;
   font-weight: normal;
+  color: var(--text);
   margin-top: 1%;
   margin-bottom: 1.8%;
 }
@@ -129,7 +140,7 @@ body {
 
 #slider figure img {
   margin: 0px;
-  border: 1px solid rgb(243, 206, 193);
+  border: 1px solid var(--border);
   height: 50%;
   width: 10%;
   float: left;
@@ -194,24 +205,26 @@ body {
 }
 /* dishesh box */
 #dishes:hover {
-  transition: all 0.4s;
-  transform: scale(1.05);
+  transition: all 0.3s ease;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 #dishes {
-  transition: all 0.4s;
-  /* background-color: rgb(223, 219, 219); */
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid rgb(185, 177, 177);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s;
+  transition: all 0.3s ease;
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
-/* imae of inside of dish */
+/* image inside the dish card */
 #dishes #logo img {
-  border: 4px 4px 0 0;
-  transition: all 0.4s;
+  transition: all 0.4s ease;
   width: 250px;
   height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
 }
 
 .dname {
@@ -228,6 +241,12 @@ body {
 }
 #name {
   text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text);
+}
+#price {
+  color: var(--primary);
+  font-weight: 700;
 }
 .dname:hover {
   background-color: rgb(211, 208, 208);
@@ -247,28 +266,29 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--text);
+  background-color: var(--surface);
   font-weight: bold;
   font-size: 15px;
-  border: 1px solid black;
+  border: 1px solid var(--border);
   padding: 0 8px;
   transition: all 0.2s ease-in;
 }
 #number {
   font-size: 1.1rem;
-  padding: 0 0.2rem;
+  padding: 0 0.5rem;
+  font-weight: 600;
 }
 #addBtn {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--text);
+  background-color: var(--surface);
   font-weight: bold;
   font-size: 15px;
-  border: 1px solid black;
+  border: 1px solid var(--border);
   padding: 0px 5px;
   transition: all 0.2s ease-in;
 }
@@ -278,19 +298,23 @@ body {
 }
 .Btn:hover {
   transform: scale(1.04);
-  background-color: bisque;
+  background-color: var(--primary-light);
 }
 .addCartBtn {
-  color: black;
+  color: #fff;
+  background-color: var(--primary);
   font-size: 0.9rem;
-  padding: 2px 8px 0px 8px;
-  margin-left: 0.5rem;
-  transition: all 0.3s ease-in;
+  padding: 6px 16px;
+  margin-left: 0.6rem;
+  transition: all 0.2s ease;
   text-align: center;
-  font-family: "signika negative";
-  border: 1px solid black;
-  border-radius: 7px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-pill);
   cursor: pointer;
+}
+.addCartBtn:hover {
+  background-color: var(--primary-dark);
 }
 
 /* responsive desgin */
