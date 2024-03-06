@@ -1,26 +1,32 @@
 .review_page_container {
   display: flex;
   width: 100%;
-  font-family: "overpass", "signika negative";
+  font-family: var(--font);
   margin: auto;
   width: 80%;
   margin-bottom: 2rem;
 }
 /* headings */
 .food_detail_heading {
+  font-family: var(--heading-font);
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: normal;
+  color: var(--text);
+  margin-bottom: 0.6rem;
 }
-/* lefrt part of container */
+/* left part of container */
 .product_container {
   position: sticky;
-  top: 100px;
+  top: 80px;
   max-width: 36rem;
   width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(218, 215, 215);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   padding: 2rem;
   margin-top: 2rem;
   margin-left: 2rem;
@@ -32,6 +38,8 @@
   height: 100%;
   width: 100%;
   max-width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
 }
 .cart_add {
   margin: 1rem 0;
@@ -41,19 +49,24 @@
   align-items: center;
 }
 .add_cart_button {
-  padding: 0.6rem 0;
-  border-radius: 5px;
+  padding: 0.7rem 0;
+  border-radius: var(--radius-pill);
   width: 100%;
   border: none;
-  background-color: #fb641b;
+  background-color: var(--primary);
   text-transform: uppercase;
   color: white;
-  font-family: "signika negative";
+  font-family: var(--font);
+  font-weight: 600;
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+.add_cart_button:hover {
+  background-color: var(--primary-dark);
 }
 /* right part of laptop */
 .product_summary {
@@ -71,27 +84,35 @@
   gap: 3rem;
 }
 .product_info {
-    width: 100%;
-    background: #f2f2f2;
-    padding: 1rem;
-    margin-right: 0.5rem;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  margin-right: 0.5rem;
 }
 .product_rating {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    width: 100%;
-    background: #f2f2f2;
-    padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
 }
 .detail {
   display: flex;
   align-items: center;
+  margin-bottom: 0.3rem;
 }
 .avarage_star {
   font-size: 1rem;
+  color: var(--accent);
 }
 /* review from user */
 .user_comments_container {
@@ -105,14 +126,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-    padding: 1rem;
-    background-color: #f2f2f2;
+  padding: 1.25rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 .rating_details {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.range_input {
+  accent-color: var(--primary);
 }
 .star_name {
   display: flex;
@@ -121,6 +149,7 @@
 }
 .small-rating-star {
   font-size: 0.8rem;
+  color: var(--accent);
 }
 .user_comment {
   display: flex;
@@ -128,7 +157,7 @@
   justify-content: center;
   width: 100%;
   padding: 0.7rem 0 0.8rem 0;
-  border-bottom: 1px solid rgb(204, 201, 201);
+  border-bottom: 1px solid var(--border);
 }
 .user_details {
   display: flex;

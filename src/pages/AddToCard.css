@@ -19,34 +19,52 @@
   width: 30rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: #f2f2f2;
-  border: 1px solid gray;
+  gap: 0.75rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+.cart-container:hover {
+  box-shadow: var(--shadow-md);
 }
 .add-quantity {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 .quantity {
-  font-family: "signika negative";
+  font-family: var(--font);
   font-size: 1.1rem;
+  font-weight: 600;
 }
 .cart-icons {
   font-size: 1.4rem;
   cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+.cart-icons:hover {
+  transform: scale(1.1);
 }
 .fa-trash {
-  color: red;
+  color: var(--danger);
   margin-left: 0.5rem;
 }
 .addtocart-container .cart-container img {
   width: 260px;
   height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
 }
 .cart-values {
-  font-weight: 500;
+  font-weight: 700;
+  color: var(--text);
 }
 .image-description {
   display: flex;
@@ -57,8 +75,9 @@
 .product-name,
 .product-price,
 .product-quantity {
-  font-family: "signika negative";
-  font-size: 1.3rem;
+  font-family: var(--font);
+  font-size: 1.2rem;
+  color: var(--text);
 }
 .payment-calculation {
   flex-direction: column;
@@ -68,22 +87,30 @@
   width: 100%;
   margin-top: 1rem;
   gap: 0.7rem;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(60, 40, 25, 0.06);
+  padding-top: 0.8rem;
 }
 .pay-total {
   font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
 }
 .pay-button:hover {
-  background-color: rgb(113, 214, 113);
+  background-color: var(--primary-dark);
 }
 .pay-button {
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease;
   font-size: 1.2rem;
-  width: 6rem;
-  background-color: rgb(27, 196, 27);
+  width: 7rem;
+  color: #fff;
+  background-color: var(--primary);
   outline: none;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0;
   text-transform: uppercase;
-  border: 1px solid rgb(143, 139, 139);
+  font-weight: 600;
+  border: none;
 }
 .fa-amazon-pay {
   position: relative;
