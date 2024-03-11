@@ -38,15 +38,15 @@ const Test = () => {
       {/* after data fetched through qr code */}
      { result&&<div style={{display:'flex',justifyContent:'center', width:"100vw",height:"100vh",backgroundColor:"white",position:"fixed",top:0,zIndex:999}}>
       <div style={{width:"250px",display:'flex',flexDirection:"column",marginTop:"30px"}}>
-       <div style={{padding:"5px",border:"1px solid gray"}}>
-       <img style={{width:"100%",maxHeight:"50vh"}} alt='...' src={result.foodimg}/>
-        <div style={{padding:"10px"}}>
-          <h4>Name : {result.foodname}</h4>
-          <h4>Quantity : {result.foodQuantity}</h4>
-          <h4>Price : {result.foodprice}</h4>
+       <div style={{padding:"8px",border:"1px solid var(--border)",borderRadius:"16px",boxShadow:"0 16px 40px rgba(60,40,25,0.12)",background:"#fff",overflow:"hidden"}}>
+       <img style={{width:"100%",maxHeight:"50vh",borderRadius:"10px",objectFit:"cover"}} alt='...' src={result.foodimg}/>
+        <div style={{padding:"12px 6px"}}>
+          <h4 style={{margin:"0 0 6px",fontSize:"1rem"}}>Name : {result.foodname}</h4>
+          <h4 style={{margin:"0 0 6px",fontSize:"1rem"}}>Quantity : {result.foodQuantity}</h4>
+          <h4 style={{margin:"0",fontSize:"1rem",color:"var(--primary)",fontWeight:"700"}}>Price : {result.foodprice}</h4>
         </div>
-        <div style={{display:"flex",justifyContent:"space-between"}}>
-          <button className='btn btn-success' onClick={()=>setResult(undefined)}>CLOSE</button>
+        <div style={{display:"flex",justifyContent:"space-between",gap:"10px",padding:"0 6px 6px"}}>
+          <button className='btn btn-outline-secondary' onClick={()=>setResult(undefined)}>CLOSE</button>
 
           <button className='btn btn-success' onClick={async()=>{
           const data=  await axios.post(`${expireQr}/${result.uniqueOrderId}`);
