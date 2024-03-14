@@ -1,26 +1,28 @@
 .feedback_container {
-  font-family: "overpass", "Signika negative";
+  font-family: var(--font);
   width: 100%;
   padding: 2rem;
   min-height: 100vh;
   transition: all 0.4s ease-in;
   position: absolute;
-  background-color: white;
+  background-color: var(--bg);
   top: 0;
   z-index: 60;
 }
 .close_button{
   position: relative;
   left: 10rem;
-  background-color: rgb(216, 199, 216);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
   text-align: center;
   width: 1.7rem;
   font-size: 1.6rem;
   height: 1.6rem;
-  border-radius: 10%;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
 }
 .close_button:hover{
-  background-color: rgb(219, 205, 219);
+  background-color: var(--border);
 }
 .feedback_circle {
   flex-direction: column;
@@ -34,15 +36,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: red; */
-  border: 2px solid gray;
-  border-radius: 10px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   padding: 2rem;
 }
 .feedback_heading {
+  font-family: var(--heading-font);
   font-size: 1.5rem;
   text-align: center;
-  font-weight: bold;
+  font-weight: normal;
+  color: var(--text);
 }
 .star_container {
   display: flex;
@@ -67,6 +72,7 @@
 }
 .fa-star {
   font-size: 1.5rem;
+  color: var(--accent);
 }
 /* comments box */
 .feedback_comment {
@@ -76,7 +82,10 @@
   width: 100%;
   max-height: 4rem;
   overflow-y: scroll;
-  padding: 0.2rem 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
 }
 /* image upload box */
 .feedback_image {
@@ -84,45 +93,44 @@
 }
 .low_heading {
   font-size: 1.2rem;
+  color: var(--text);
 }
 #upload_image_label {
-  /* background-color: rgb(157, 165, 207); */
-  padding: 0.3rem 0;
-  background: linear-gradient(
-    to right,
-    rgb(154, 151, 202),
-    rgb(141, 194, 207),
-    rgb(121, 121, 187)
-  );
+  padding: 0.5rem 0;
+  background: var(--primary-light);
   width: 100%;
-  color: red;
+  color: var(--primary-dark);
   text-align: center;
   cursor: pointer;
-  border-radius: 0.2rem;
-  border: none;
-  transition: 0.4s ease-in;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--primary);
+  transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.3rem;
-  font-weight: bold;
+  font-weight: 600;
+}
+#upload_image_label:hover {
+  background: var(--border);
 }
 
 .feedback_submit {
-  font-weight: bold;
-  padding: 0.4rem 0;
+  font-weight: 600;
+  padding: 0.55rem 0;
   font-size: 1rem;
   margin: 1.5rem 0 0 0;
-  background-color: rgb(141, 192, 107);
+  color: #fff;
+  background-color: var(--primary);
   width: 100%;
   text-align: center;
   cursor: pointer;
-  border-radius: 0.2rem;
+  border-radius: var(--radius-pill);
   border: none;
-  transition: 0.4s ease-in;
+  transition: 0.3s ease;
 }
 .feedback_submit:hover {
-  background-color: rgb(169, 216, 140);
+  background-color: var(--primary-dark);
 }
 
 @media (max-width: 400px) {
