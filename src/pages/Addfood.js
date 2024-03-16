@@ -102,8 +102,8 @@ const handleSubmit=(e)=>{
   <button type="submit" className={`btn btn-primary ${!imgUploaded&&"disabled"}`}>{imgUploaded===false?<i class="fa-solid fa-spinner fa-spin"></i>:"Submit"}</button>
 </form>
 <div>
- <button style={{backgroundColor:"blue",border:"1px solid black",borderRadius:"5px",padding:"2px 8px"}}><Link style={{textDecoration:"none",fontSize:"20px",color:"white"}} to="/stockissue">stockissue</Link></button>
- <button style={{marginLeft:"5px",height:"35px",backgroundColor:"#67eb79",border:"1px solid black",borderRadius:"5px",padding:"2px 8px"}} onClick={ReturnMoney}>Return Money</button>
+ <button style={{backgroundColor:"var(--primary)",border:"none",borderRadius:"var(--radius-pill)",padding:"6px 16px"}}><Link style={{textDecoration:"none",fontSize:"18px",color:"white"}} to="/stockissue">stockissue</Link></button>
+ <button style={{marginLeft:"8px",height:"35px",color:"#fff",backgroundColor:"var(--success)",border:"none",borderRadius:"var(--radius-pill)",padding:"6px 16px"}} onClick={ReturnMoney}>Return Money</button>
 </div>
     </div>
   )

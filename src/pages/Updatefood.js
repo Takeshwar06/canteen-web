@@ -87,10 +87,10 @@ export default function Updatefood() {
                       </div>
                       <div className="operationBtn">
                         <div className="btn">
-                         {food.foodAvailable&&<button  style={{color:"red",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
+                         {food.foodAvailable&&<button  style={{color:"#fff",backgroundColor:"var(--danger)",borderRadius:"var(--radius-pill)",border:"none"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
                         </div>
                         <div className="btn">
-                          {!food.foodAvailable&&<button style={{backgroundColor:"rgb(142 223 193)"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
+                          {!food.foodAvailable&&<button style={{color:"#fff",backgroundColor:"var(--success)",borderRadius:"var(--radius-pill)",border:"none"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
                         </div>
                       </div>
                     </div>
@@ -126,10 +126,10 @@ export default function Updatefood() {
                       </div>
                       <div className="operationBtn">
                         <div className="btn">
-                         {food.foodAvailable&&<button  style={{color:"red",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
+                         {food.foodAvailable&&<button  style={{color:"#fff",backgroundColor:"var(--danger)",borderRadius:"var(--radius-pill)",border:"none"}} className='disableBtn' onClick={() => { foodAvailable(food._id, false) }}>notAvailable</button>}
                         </div>
                         <div className="btn">
-                          {!food.foodAvailable&&<button style={{backgroundColor:"rgb(142 223 193)"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
+                          {!food.foodAvailable&&<button style={{color:"#fff",backgroundColor:"var(--success)",borderRadius:"var(--radius-pill)",border:"none"}} className='disableBtn' onClick={() => { foodAvailable(food._id, true) }}>available</button>}
                         </div>
                       </div>
                     </div>
@@ -316,9 +316,10 @@ input[type="submit"] {
 }
 
 .row {
-    border: 2px solid black;
-    background-color: #f5ebeb;
-    border-radius: 5px;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
 }
 
 .dishImg {
@@ -361,18 +362,16 @@ input[type="submit"] {
 
 .btn button {
     margin: 15px;
-    padding: 2px 16px;
-    border: 1px solid black;
-    background: none;
-    /*background-color: rgb(211 193 186); */
-    background-color: rgb(33, 219, 42);
-    border-radius: 5px;
-    transition: all 0.8s ease;
+    padding: 6px 18px;
+    border: none;
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn button:hover {
-    background-color: rgba(85, 236, 15, 0.678);
-    border-radius: 10px;
+    filter: brightness(0.92);
 }
 
 .btn button:active {
