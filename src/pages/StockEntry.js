@@ -155,17 +155,15 @@ const Container=styled.div`
 #addBtn {
     position: relative;
     right: 15vw;
-    border-radius: 8px;
-    color: black;
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-    font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    /* margin-right: 3px; */
-    /* margin-right: -2px; */
+    border-radius: var(--radius-pill);
+    color: #fff;
+    background-color: var(--primary);
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 1.1rem;
     margin-left: 13vw;
-    border: 2px solid black;
-    padding: 4px 14px;
+    border: none;
+    padding: 6px 18px;
 }
 #stockPage h3 {
     margin: 1.5rem 0px 1.5rem 0px;
@@ -177,7 +175,10 @@ const Container=styled.div`
 
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px solid black;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-sm);
 }
 
 #stock {
@@ -185,7 +186,7 @@ const Container=styled.div`
 }
 
 #stock table {
-    border: 2px solid red;
+    border: 1px solid var(--border);
     border-collapse: collapse;
     text-align: center;
     margin: auto;
@@ -193,17 +194,18 @@ const Container=styled.div`
 }
 
 #stock table thead tr th {
-    font-size: 1.4rem;
-    padding: 20px 5px 20px 5px;
-    border: 2px solid grey;
-
+    font-size: 1.2rem;
+    padding: 16px 5px;
+    border: 1px solid var(--border);
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
 }
 
 #stock table tbody tr td {
 
     font-size: 1.1rem;
-    padding: 10px 0px 10px 0px;
-    border: 2px solid grey;
+    padding: 10px 0px;
+    border: 1px solid var(--border);
 }
 
 tr {
@@ -211,7 +213,7 @@ tr {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: var(--bg);
 }
 
 input[type="number"] {
@@ -241,26 +243,28 @@ input[type="date"] {
 }
 
 #Btns button {
-    border-radius: 5px;
-    background-color: #f3f3;
-
-    padding: 4px 30px;
+    border-radius: var(--radius-pill);
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 6px 30px;
 }
 
 #Btns button a {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: #fff;
 }
 
 #Btns button:hover {
     transform: scale(1.03);
-    background: rgb(33, 238, 159);
+    background: var(--primary-dark);
 
 }
 
 #Btns button:active {
     transform: scale(0.99);
-    background: rgb(33, 238, 159);
+    background: var(--primary-dark);
 
 }
 
@@ -331,8 +335,10 @@ input[type="date"] {
     align-items: center;
 }
 .addNew button {
-    border-radius: 5px;
-    background-color: #f3f3;
+    border-radius: var(--radius-pill);
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
     padding: 2px 12px;
     font-size: 1.4rem;
     margin-top: 2%;
@@ -341,13 +347,13 @@ input[type="date"] {
 
 .addNew button:hover {
     transform: scale(1.03);
-    background: rgb(33, 238, 159);
+    background: var(--primary-dark);
 
 }
 
 .addNew button:active {
     transform: scale(0.99);
-    background: rgb(33, 238, 159);
+    background: var(--primary-dark);
 
 }
 `  

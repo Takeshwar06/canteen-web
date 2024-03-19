@@ -173,7 +173,7 @@ const Container=styled.div`
             
             margin-left: 10px;
             margin-right: 10px;
-            border: 2px solid black;
+            border: 1px solid var(--border);
         }
 
         #stock {
@@ -181,7 +181,7 @@ const Container=styled.div`
         }
 
         #stock table {
-            border : 2px solid red;
+            border : 1px solid var(--border);
             border-collapse: collapse;
             text-align: center;
             margin: auto;
@@ -191,7 +191,7 @@ const Container=styled.div`
         #stock table thead tr th {
             font-size: 1.4rem;
             padding: 20px 5px 20px 5px;
-            border : 2px solid grey;
+            border : 1px solid var(--border);
 
         }
 
@@ -199,7 +199,7 @@ const Container=styled.div`
 
             font-size: 1.1rem;
             padding: 10px 0px 10px 0px;
-            border: 2px solid grey;
+            border: 1px solid var(--border);
         }
 
         tr {
@@ -207,7 +207,7 @@ const Container=styled.div`
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: var(--bg);
         }
 
         input[type="number"] {
@@ -244,12 +244,12 @@ const Container=styled.div`
         }
         #Btns button:hover{
             transform: scale(1.03);   
-            background: rgb(33, 238, 159);
+            background: var(--primary);
 
         }
         #Btns button:active{
             transform: scale(0.99);   
-            background: rgb(33, 238, 159);
+            background: var(--primary);
 
         }
 
@@ -272,7 +272,7 @@ const Container=styled.div`
 
                 margin-left: 1px;
                 margin-right: 1px;
-                border: 2px solid black;
+                border: 1px solid var(--border);
             }
 
             #stock {
@@ -296,12 +296,12 @@ const Container=styled.div`
             #stock table thead tr th {
                 font-size: 1rem;
                 padding: 20px 5px 20px 5px;
-                border: 2px solid grey;
+                border: 1px solid var(--border);
             }
             #stock table tbody tr td {
                 font-size: 0.9rem;
                 padding: 10px 0px 10px 0px;
-                border: 2px solid grey;
+                border: 1px solid var(--border);
             }
 
             
@@ -332,13 +332,13 @@ const Container=styled.div`
       
         .addNew button:hover {
             transform: scale(1.03);
-            background: rgb(33, 238, 159);
+            background: var(--primary);
 
         }
 
         .addNew button:active {
             transform: scale(0.99);
-            background: rgb(33, 238, 159);
+            background: var(--primary);
 
         }
 `  

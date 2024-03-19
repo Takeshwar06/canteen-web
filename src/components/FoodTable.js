@@ -11,7 +11,7 @@ export default function FoodTable({realFood,orderArray}) {
         <span style={{float:"right"}}><small>{new Date().toString().substring(0,15)}</small></span>
     <table className="table table-bordered border-primary text-center">
       <thead>
-  <tr style={{backgroundColor:"aqua"}}>
+  <tr style={{backgroundColor:"var(--primary-light)"}}>
     <th scope="col" style={{fontSize:"1.3rem",}}>#</th>
     <th scope="col" style={{fontSize:"1.3rem",}}>FoodName</th>
     <th scope="col" style={{fontSize:"1.3rem",}}>FoodQuatity</th>
@@ -33,7 +33,7 @@ export default function FoodTable({realFood,orderArray}) {
   })
     }
 
-  <tr style={{backgroundColor:'aqua',color:"red"}}>
+  <tr style={{backgroundColor:'var(--primary-light)',color:"red"}}>
     <th  scope="row"></th>
     <td style={{color:"red",fontSize:"1.3rem",}} >TOTAL</td>
     <td></td>
@@ -49,7 +49,7 @@ export default function FoodTable({realFood,orderArray}) {
  </div> 
 <div className="container">
 <button style={{fontSize:"20px",border:"1px solid black"
-,borderRadius:"5px",backgroundColor:"#7be26d",padding:'0px 8px'}} className="mx-2" onClick={()=>print('Report', 'jsx-template')}> print</button>
+,borderRadius:"5px",backgroundColor:"var(--primary)",padding:'0px 8px'}} className="mx-2" onClick={()=>print('Report', 'jsx-template')}> print</button>
 </div>
     </>
   )
