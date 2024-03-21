@@ -15,7 +15,7 @@ const Button = () => {
 
     return (
         <>
-            <button onClick={openFeedbackForm} >click me</button>
+            <button onClick={openFeedbackForm} style={{ backgroundColor: "var(--primary-light)", color: "var(--primary-dark)", border: "1px solid var(--primary)", borderRadius: "var(--radius-pill)", padding: "4px 14px", fontWeight: 600 }}>click me</button>
             {
                 openFModal && (
                     <Feedback onClose={closeFeedbackForm} />

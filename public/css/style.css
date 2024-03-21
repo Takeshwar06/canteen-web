@@ -625,3 +625,27 @@ body {
   font-size: 26px;
  }
 }
+
+/* ---- bootstrap theme overrides (make buttons/inputs match our colors) ---- */
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-dark);
+  --bs-btn-hover-border-color: var(--primary-dark);
+  --bs-btn-active-bg: var(--primary-dark);
+  --bs-btn-active-border-color: var(--primary-dark);
+  --bs-btn-disabled-bg: var(--primary);
+  --bs-btn-disabled-border-color: var(--primary);
+  --bs-btn-focus-shadow-rgb: 255, 90, 31;
+}
+.btn-outline-success {
+  --bs-btn-color: var(--success);
+  --bs-btn-border-color: var(--success);
+  --bs-btn-hover-bg: var(--success);
+  --bs-btn-hover-border-color: var(--success);
+  --bs-btn-active-bg: var(--success);
+}
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(255, 90, 31, 0.2);
+}
