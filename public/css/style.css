@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
 }
 #root {
   background-color: #fff;
@@ -357,22 +356,21 @@ body {
 
 /* coin - popup styles */
 .coin-popup {
-  background-color: red;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .allBox {
-  border: 1px solid rgb(120, 115, 115);
-  border-radius: 6px;
-  background-color: rgb(224 234 229);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
   width: 470px;
   overflow: hidden;
   height: 430px;
   visibility: hidden;
   z-index: 1;
-  box-sizing: 0 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
   transition: transform 0.3s, top 0.4s;
   position: absolute;
   top: 100px;
@@ -419,9 +417,6 @@ body {
 
 /* modal for  */
 /* desing the popup of login panel */
-* {
-  font-family: "Bree Serif";
-}
 
 .LoginForms {
   display: flex;

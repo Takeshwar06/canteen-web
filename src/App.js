@@ -109,15 +109,15 @@ function App() {
         <h2>Name : {isAuthenticated?user.name:"canteen-user"} </h2>
         <div style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center",marginTop:
       "20px"}} id="userId">
-        {!isAuthenticated?<button style={{backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black",padding:"2px 8px"}} onClick={handleSend}>login</button>
-        :<button style={{backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black",padding:"2px 8px"}} onClick={()=>{localStorage.removeItem("UserId");logout({ logoutParams: { returnTo: `${window.location.origin}/message` } })}}>logout</button>}<br />
+        {!isAuthenticated?<button style={{backgroundColor:"var(--primary)",color:"#fff",borderRadius:"var(--radius-pill)",border:"none",padding:"2px 8px"}} onClick={handleSend}>login</button>
+        :<button style={{backgroundColor:"var(--primary)",color:"#fff",borderRadius:"var(--radius-pill)",border:"none",padding:"2px 8px"}} onClick={()=>{localStorage.removeItem("UserId");logout({ logoutParams: { returnTo: `${window.location.origin}/message` } })}}>logout</button>}<br />
         
         </div>
          <div style={{paddingRight:"10px",paddingLeft:"10px"}}>
          <p style={{textAlign:"center",color:"grey",}}>if you have coin then remeber your email id to login</p>
          </div>
         <div style={{display:"flex",alignItems:"right",justifyContent:"right"}}>
-        <button style={{marginRight:"20px",position:"relative",top:'-40px',padding:"2px 8px",backgroundColor:`${"rgb(142 223 193)"}`,borderRadius:"5px",border:"2px soild black"}} className="my-5 " onClick={handlClosePop}>close</button>
+        <button style={{marginRight:"20px",position:"relative",top:'-40px',padding:"2px 8px",backgroundColor:"var(--primary)",color:"#fff",borderRadius:"var(--radius-pill)",border:"none"}} className="my-5 " onClick={handlClosePop}>close</button>
         </div>
     </div>
      </div>
