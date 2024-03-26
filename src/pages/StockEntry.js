@@ -150,7 +150,7 @@ const Container=styled.div`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto slab';
+    font-family: var(--font);
 }
 #addBtn {
     position: relative;

@@ -165,7 +165,7 @@ body {
 
 body {
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-    font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+    font-family: var(--font);
 }
 
 #contents {
@@ -186,7 +186,7 @@ body {
     padding-top: 10px;
     margin-left: 25px;
     /* width: 300%; */
-    font-weight: bold;
+    font-weight: 600;
     font-size: 2.3rem;
     /* margin: 12px 0px 12px 14px; */
 }
@@ -227,18 +227,18 @@ input[type="number"] {
     margin-bottom: 1.5rem;
     border: 2px solid black;
     border-radius: 5px;
-    font-family: 'bree serif';
+    font-family: var(--font);
     font-size: 1.5rem;
 }
 
 input[type="text"]::placeholder {
     font-size: 1.5rem;
-    font-family: 'bree serif';
+    font-family: var(--font);
 }
 
 input[type="number"]::placeholder {
     font-size: 1.5rem;
-    font-family: 'bree serif';
+    font-family: var(--font);
 }
 
 input[type="number"],
@@ -264,7 +264,7 @@ input[type="submit"] {
     border: 2px solid black;
     border-radius: 5px;
     background-color: rgb(231, 196, 196);
-    font-family: 'bree serif';
+    font-family: var(--font);
     font-size: 1.7rem;
     color: rebeccapurple;
 
@@ -379,7 +379,7 @@ input[type="submit"] {
 }
 
 .btn button a {
-    font-family: 'bree serif';
+    font-family: var(--font);
     text-decoration: none;
     color: red;
     font-size: 1.6rem;

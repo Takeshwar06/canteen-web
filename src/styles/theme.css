@@ -22,8 +22,8 @@
   --danger: #e23b3b;
 
   /* fonts */
-  --font: 'Overpass', sans-serif;
-  --heading-font: 'Bree Serif', serif;
+  --font: 'Karla', system-ui, sans-serif;
+  --heading-font: 'Karla', system-ui, sans-serif;
 
   /* radius */
   --radius: 10px;

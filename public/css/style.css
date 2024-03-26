@@ -227,7 +227,7 @@ body {
 }
 
 .dname {
-  font-family: "signika negative";
+  font-family: var(--font);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,7 +267,7 @@ body {
   border-radius: 100%;
   color: var(--text);
   background-color: var(--surface);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 15px;
   border: 1px solid var(--border);
   padding: 0 8px;
@@ -285,7 +285,7 @@ body {
   border-radius: 100%;
   color: var(--text);
   background-color: var(--surface);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 15px;
   border: 1px solid var(--border);
   padding: 0px 5px;
