@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { useRef } from 'react'
 import { useState } from 'react'
@@ -105,7 +105,7 @@ export default function Navbar() {
 
         <div id="header">
           <div id="logo" className="head">
-            <Link to='/'><img src="/images/smartCanteenLogo.png" alt="😊" /></Link>
+            <Link to='/'><img src="/images/smartCanteenLogo.png" alt="Smart Canteen" /></Link>
           </div>
           <div id="mainHeading" className="head">
             <h1>Smart Canteen</h1>
@@ -114,52 +114,34 @@ export default function Navbar() {
 
         <div className='menu-container'>
 
-          {/* <div id="searchBlock">
-                        <div id="search" className="searching">
-                            <input type="text" name="search" id="searchTxt" placeholder="search your favorite dish"/>
-                            <input id="searchBtn" type="submit" value="Search"/>
-                        </div>
-                      </div> */}
-
-          <div id="login-link">
-            <form className='d-flex' role='search'>
-              {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <img onClick={loginClick} id="logo" src="/image2/loginLogo.png" alt="log" srcSet="" />}
-              {localStorage.getItem("employee") && <img onClick={logClick} id="logo" src="/image2/loginLogo.png" alt="sig" srcSet="" />}
-              {localStorage.getItem("manager") && <img onClick={logClick} id="logo" src="/image2/loginLogo.png" alt="sig" srcSet="" />}
-            </form>
-          </div>
-          {/* <div id="login-link">
-            <form className='d-flex' role='search'>
-              {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <span onClick={loginClick} id="logo" >Login</span>}
-              {localStorage.getItem("employee") && <span onClick={logClick} id="logo">Login</span>}
-              {localStorage.getItem("manager") && <span onClick={logClick} id="logo" >Login</span>}
-            </form>
-          </div> */}
-
-
           <div className='menu-links' style={{ left: `${openMenu ? '0%' : '100%'}` }} >
-            {/* {!localStorage.getItem("employee") &&<li><a id="active" href="index.html">orderDetail</a></li>} */}
-            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/message">OrderDetail</Link></li>}
-            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/card">Card</Link></li>}
-            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/orderhistory">History</Link></li>}
-            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><Link to="/">Home</Link></li>}
+            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/" end>Home</NavLink></li>}
+            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/message">Orders</NavLink></li>}
+            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/card">Cart</NavLink></li>}
+            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/orderhistory">History</NavLink></li>}
 
             {localStorage.getItem("employee") && <>
-              <li onClick={()=>setOpenMenu(false)}><Link to="/addfood" >Addfood</Link></li>
-              <li onClick={()=>setOpenMenu(false)}><Link to="/updatefood">Updatefood</Link></li>
-              <li onClick={()=>setOpenMenu(false)}><Link to="/scanner">Scan</Link></li>
-              <li onClick={()=>setOpenMenu(false)}><Link to="/message">Message</Link></li>
-              {/* <span style={{fontSize:"10px"}} className="badge text-bg-secondary">.</span>   */}
+              <li onClick={()=>setOpenMenu(false)}><NavLink to="/addfood" >Add Food</NavLink></li>
+              <li onClick={()=>setOpenMenu(false)}><NavLink to="/updatefood">Update Food</NavLink></li>
+              <li onClick={()=>setOpenMenu(false)}><NavLink to="/scanner">Scan</NavLink></li>
+              <li onClick={()=>setOpenMenu(false)}><NavLink to="/message">Message</NavLink></li>
             </>}
 
             {
               localStorage.getItem("manager") && <>
-                <li onClick={()=>setOpenMenu(false)}><Link to="/foodreport">Foodreport</Link></li>
-                <li onClick={()=>setOpenMenu(false)}><Link to="/stockissue">Stockissue</Link></li>
-                <li onClick={()=>setOpenMenu(false)}><Link to="/stockentry">Stockentry</Link></li>
+                <li onClick={()=>setOpenMenu(false)}><NavLink to="/foodreport">Reports</NavLink></li>
+                <li onClick={()=>setOpenMenu(false)}><NavLink to="/stockissue">Stock Issue</NavLink></li>
+                <li onClick={()=>setOpenMenu(false)}><NavLink to="/stockentry">Stock Entry</NavLink></li>
               </>
             }
           </div>
+
+          <div id="login-link">
+            {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <button className="login-btn" onClick={loginClick}>Login</button>}
+            {localStorage.getItem("employee") && <button className="login-btn logout" onClick={logClick}>Logout</button>}
+            {localStorage.getItem("manager") && <button className="login-btn logout" onClick={logClick}>Logout</button>}
+          </div>
+
           {
             (windowWidth < 900) &&
             (
@@ -181,7 +163,7 @@ export default function Navbar() {
 
             )
           }
-        
+
 
         </div>
       </nav>

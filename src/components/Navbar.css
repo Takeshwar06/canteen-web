@@ -6,7 +6,7 @@
   align-items: center;
   min-width: 100%;
   background-color: var(--surface);
-  height: 72px;
+  height: 68px;
   padding: 0 5vw;
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
@@ -17,99 +17,105 @@
 
 #header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 #logo img {
-  height: 46px;
+  height: 40px;
 }
 
 #mainHeading h1 {
   margin: 0;
-  font-size: 1.7rem;
-  font-family: var(--heading-font);
-  font-weight: 400;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--text);
-  letter-spacing: 0.3px;
+  letter-spacing: -0.01em;
 }
 
 .menu-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 1.25rem;
 }
 
-#login-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#login-link img {
-  cursor: pointer;
-  height: 30px;
-}
-
-#login-link span {
-  font-family: var(--font);
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: var(--radius-pill);
-  font-size: 1rem;
-  padding: 6px 16px;
-  transition: all 0.2s ease;
-}
-
+/* nav links */
 .menu-links {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 0.25rem;
+  list-style: none;
 }
 
 .menu-container .menu-links li {
-  margin: 0;
   list-style: none;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .menu-container .menu-links li a {
   font-family: var(--font);
-  font-weight: 600;
-  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 0.95rem;
   text-decoration: none;
-  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.menu-container .menu-links li a:hover {
   color: var(--text);
-  font-size: 1rem;
-  padding: 8px 16px;
-  transition: all 0.2s ease;
-}
-
-.menu-links li a:hover,
-#login-link span:hover {
   background: var(--primary-light);
-  color: var(--primary-dark);
 }
 
-.fa-bars {
+.menu-container .menu-links li a.active {
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  font-weight: 600;
+}
+
+/* login / logout button */
+#login-link {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 1.1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.login-btn.logout {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.login-btn.logout:hover {
+  background: var(--bg);
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.fa-bars,
+.fa-close {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--text);
-  position: relative;
-  left: 0.5rem;
-}
-
-.fa-close {
-  cursor: pointer;
-  font-size: 1.8rem;
-  color: var(--text);
-  position: relative;
-  left: 0.5rem;
 }
 
 /* mobile slide-in menu */
@@ -119,9 +125,9 @@
     background-color: var(--surface);
     flex-direction: column;
     position: absolute;
-    top: 72px;
+    top: 68px;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 68px);
     z-index: 3;
     align-items: start;
     justify-content: start;
@@ -129,43 +135,43 @@
     box-shadow: var(--shadow-md);
   }
   .menu-container .menu-links li {
-    justify-content: start;
     width: 100%;
     border-bottom: 1px solid var(--border);
   }
   .menu-container .menu-links li a {
     width: 100%;
     border-radius: 0;
-    font-size: 1.05rem;
-    padding: 0.85rem 1.25rem;
-    margin: 0;
+    font-size: 1rem;
+    padding: 0.9rem 1.25rem;
+  }
+  .menu-container {
+    gap: 0.85rem;
   }
 }
 
 @media (max-width: 500px) {
-  #login-link img {
-    height: 27px;
-  }
   #navbar {
     padding: 0 4vw;
-    height: 64px;
+    height: 60px;
   }
   .menu-links {
-    top: 64px;
+    top: 60px;
+    height: calc(100vh - 60px);
   }
   #logo img {
-    height: 38px;
-  }
-  #header {
-    gap: 0.5rem;
+    height: 34px;
   }
   #mainHeading h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+  .login-btn {
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 356px) {
   #mainHeading h1 {
-    font-size: 1.25rem;
+    font-size: 1.05rem;
   }
 }
