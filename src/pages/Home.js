@@ -38,7 +38,6 @@ export default function Home({ setShowDownload, showDownload }) {
           })}
         </div>}
       </div>
-      <hr></hr>
 
       {!loading && <div id="specialFood">
 
@@ -53,7 +52,6 @@ export default function Home({ setShowDownload, showDownload }) {
           </figure>
         </div>
       </div>}
-      <hr></hr>
       {!loading && <div id="allDish" className='mx-3'>
         {foods.map((food) => {
           return (

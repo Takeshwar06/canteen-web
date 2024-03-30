@@ -8,14 +8,14 @@
   --accent: #ffb400;
 
   /* surfaces */
-  --bg: #fff8f2;
+  --bg: #faf8f6;
   --surface: #ffffff;
 
   /* text */
-  --text: #1a1a1a;
-  --text-muted: #7a6e66;
-  --text-light: #a99e96;
-  --border: #eaddd3;
+  --text: #1f2024;
+  --text-muted: #6b6f76;
+  --text-light: #a0a4ab;
+  --border: #ebe7e3;
 
   /* status */
   --success: #2e9e5b;
