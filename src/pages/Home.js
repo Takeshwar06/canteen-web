@@ -41,15 +41,13 @@ export default function Home({ setShowDownload, showDownload }) {
 
       {!loading && <div id="specialFood">
 
-        <h1 id="Special-Heading">* Today's Special Food *</h1>
-        <div id="slider">
-          <figure>
-            <img class="img" src="/image2/slider-1.png" />
-            <img class="img" src="/image2/slider-2.jfif" />
-            <img class="img" src="/image2/slider-3.jpg" />
-            <img class="img" src="/image2/slider-4.jpg" />
-            <img class="img" src="/image2/slider-5.jpg" />
-          </figure>
+        <h1 id="Special-Heading">Today's Special</h1>
+        <div className="special-grid">
+          <img className="special-img" src="/image2/slider-1.png" alt="special food" />
+          <img className="special-img" src="/image2/slider-2.jfif" alt="special food" />
+          <img className="special-img" src="/image2/slider-3.jpg" alt="special food" />
+          <img className="special-img" src="/image2/slider-4.jpg" alt="special food" />
+          <img className="special-img" src="/image2/slider-5.jpg" alt="special food" />
         </div>
       </div>}
       {!loading && <div id="allDish" className='mx-3'>
