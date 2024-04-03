@@ -1,0 +1,307 @@
+/* ============ HOME PAGE ============ */
+
+/* ---------- hero ---------- */
+.hero {
+  background: linear-gradient(135deg, #ff8a4c 0%, #ff5a1f 55%, #e0470f 100%);
+  color: #fff;
+  padding: 3.5rem 5vw 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -90px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+.hero-title {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.8rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.hero-title span {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+  text-underline-offset: 6px;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  max-width: 540px;
+  margin: 0 0 1.6rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.55;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.hero-btn.primary {
+  background: #fff;
+  color: var(--primary-dark);
+}
+.hero-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+.hero-btn.ghost {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.hero-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- layout wrap + section headers ---------- */
+.home-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.home-section {
+  padding: 2.2rem 0 1rem;
+}
+.section-head {
+  margin-bottom: 1.25rem;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-title .flame {
+  color: var(--primary);
+}
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+}
+
+/* ---------- categories (circle foods) ---------- */
+#showFood {
+  width: 100%;
+  display: block;
+}
+#allFoods {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+}
+
+/* ---------- today's special cards ---------- */
+.special-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.special-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.22s ease;
+}
+.special-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.special-img-wrap {
+  position: relative;
+}
+.special-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.special-price {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: linear-gradient(135deg, #ff8a4c, #e0470f);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+.special-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.85rem 0.9rem;
+}
+.special-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+}
+.special-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--success);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- all dishes grid ---------- */
+#allDish {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0 0 2.5rem;
+  align-items: stretch;
+}
+#dishes {
+  width: 100%;
+}
+#dishes #logo img {
+  width: 100%;
+  height: 180px;
+}
+
+/* ---------- app download card ---------- */
+.application-download-box {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 0.85rem 1rem;
+  z-index: 40;
+  max-width: 340px;
+}
+.app-dl-icon img {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: block;
+}
+.app-dl-text {
+  flex: 1;
+}
+.app-dl-text h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.app-dl-text p {
+  margin: 0.1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.app-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #ff8a4c, var(--primary-dark));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.app-dl-btn:hover {
+  filter: brightness(1.05);
+  color: #fff;
+}
+.application-download-bax-close {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.5rem 5vw 3rem;
+  }
+  .home-section {
+    padding: 1.6rem 0 0.5rem;
+  }
+  .special-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.9rem;
+  }
+  #allDish {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .application-download-box {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+}
