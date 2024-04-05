@@ -11,6 +11,7 @@ import { EmployeeId } from '../utils/APIRoutes';
 // import { useContext } from 'react';
 // import foodContext from '../context/foods/foodContext';
 import foodContext from '../context/foods/foodContext';
+import './Fooditem.css';
 
 export default function Fooditem(props) {
 
@@ -74,25 +75,28 @@ export default function Fooditem(props) {
     navigate("/foodreview")
    }
   return (
-    <>    
-
-<div id="dishes"  className="my-3 ">
-                        <div id="logo">
-                            <img onClick={()=>setFoodIdToLocal(food._id)} src={food.foodimg} alt="" srcSet=""/>
-                        </div>
-                        <div id="dishName" className="dname">
-                            <label htmlFor="" id="name">{food.foodname}:&nbsp;</label>
-                            <label htmlFor=" : " id="price">: ₹{food.foodprice}</label>
-                        </div>
-                        <div id="addingCart">
-                            <div id="minus"><button className="Btn" id="minusBtn" onClick={minusBtn}>-</button></div>
-                            <div id="number">{foodCount}</div>
-                            <div id="add"><button className="Btn" id="addBtn" onClick={addBtn}>+</button></div>
-                            <div id="addCart">
-                                <button className="Btn addCartBtn" onClick={()=>{addToCard(food,foodCount)}} id="addCartBtn-12">AddCart</button>
-                            </div>
-                        </div>
-                    </div>
-</>
+    <>
+      <div id="dishes">
+        <div id="logo">
+          <img onClick={() => setFoodIdToLocal(food._id)} src={food.foodimg} alt={food.foodname} srcSet="" />
+        </div>
+        <div className="dish-body">
+          <div id="dishName" className="dname">
+            <label htmlFor="" id="name">{food.foodname}</label>
+            <label htmlFor="" id="price">₹{food.foodprice}</label>
+          </div>
+          <div id="addingCart">
+            <div className="qty-stepper">
+              <button className="Btn" id="minusBtn" onClick={minusBtn}>−</button>
+              <span id="number">{foodCount}</span>
+              <button className="Btn" id="addBtn" onClick={addBtn}>+</button>
+            </div>
+            <button className="addCartBtn" onClick={() => { addToCard(food, foodCount) }} id="addCartBtn-12">
+              <i className="fa-solid fa-cart-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
