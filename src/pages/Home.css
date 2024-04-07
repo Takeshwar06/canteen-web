@@ -196,13 +196,18 @@
 .special-rating {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  gap: 0.22rem;
+  font-size: 0.78rem;
+  font-weight: 700;
   color: #fff;
   background: var(--success);
-  padding: 0.15rem 0.5rem;
+  padding: 0.2rem 0.45rem;
   border-radius: var(--radius-sm);
+  line-height: 1;
+}
+.special-rating i {
+  font-size: 0.68rem;
+  color: #ffd64a;
 }
 
 /* ---------- all dishes grid ---------- */

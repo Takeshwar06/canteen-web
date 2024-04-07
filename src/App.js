@@ -69,10 +69,12 @@ function App() {
  <Router>
  <div id="container" className={`blur ${popup&&"active"}`}>
  {/* <div id="contents" style={{height: '100vh'}}> */}
+     {/* opening curtain animation - disabled for now
      <div id="openingWeb">
                 <div style={{right:`${webSlider&&"52vw"}`,visibility:`${webSlider&&"hidden"}`}} id="openLeft"> </div>
                 <div style={{left:`${webSlider&&"52vw"}`,visibility:`${webSlider&&"hidden"}`}}  id="openRight"> </div>
      </div>
+     */}
      <Navbar/>
 
 
