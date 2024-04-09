@@ -105,8 +105,9 @@ export default function () {
   navigate("/foodreview")
  }
   return (
-    <div className='addtocart-container' style={{ width: "100%", marginTop: "20px" }}>
-      <div className="all-cart-container" style={{ width: "100%", display: "flex", flexWrap: "wrap", alignItems: "center", marginBottom: "85px" }}>
+    <div className='addtocart-container'>
+      <h1 className="page-title">Your Cart</h1>
+      <div className="all-cart-container">
         {/* items */}
         {
           foods.map((food, index) => {

@@ -1,22 +1,21 @@
 /* ADD TO CARD COMPONENT STYLES */
 
 .addtocart-container {
-  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 }
 .all-cart-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 85px;
 }
 .cart-container {
-  width: 30rem;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -121,8 +120,11 @@
   p {
     margin: 0;
   }
+  .all-cart-container {
+    grid-template-columns: 1fr;
+  }
   .cart-container {
-    width: 22rem;
+    width: 100%;
   }
   .addtocart-container .cart-container img {
     width: 180px;

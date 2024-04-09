@@ -1,32 +1,40 @@
 .order_history_container {
   font-family: var(--font);
-  width: 100%;
-  height: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
 }
 .order_heading {
-  text-align: center;
+  text-align: left;
   font-family: var(--heading-font);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--text);
-  padding: 1.4rem 0;
-  font-weight: 600;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.order_heading::before {
+  content: "";
+  width: 4px;
+  height: 1.05em;
+  background: var(--primary);
+  border-radius: 2px;
 }
 .orders_container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0;
 }
 .order {
   background-color: var(--surface);
   display: flex;
-  justify-content: center;
   gap: 0.75rem;
-  min-width: 24rem;
-  max-width: 24rem;
+  width: 100%;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -73,9 +81,9 @@
 }
 
 @media (max-width: 500px) {
-    .order{
-        min-width: 22rem;
-    }
+  .orders_container {
+    grid-template-columns: 1fr;
+  }
   .order_image {
     width: 9rem;
     height: 9rem;
