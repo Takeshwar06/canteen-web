@@ -248,13 +248,13 @@ export default function Usermsg({ setpopup, featchCoin }) {
           <button className='btn btn-success' onClick={() => setQrUrl(null)}>CLOSE</button>
         </div>
       </div>}
-      <div className="container"><h3>Order details
-        <span style={{ float: "right", color: "#6a5103", }}>Coin:<b id='coin' style={{ fontSize: "35px", cursor: "pointer", }} onClick={handlePopUp}>⚜</b></span></h3></div>
+      <div className="container" style={{ paddingTop: "1.5rem" }}><h3 style={{ fontSize: "1.6rem", fontWeight: 700, margin: "0 0 1.25rem" }}>Order details
+        <span style={{ float: "right", color: "var(--primary-dark)" }}>Coin: <b id='coin' style={{ fontSize: "30px", cursor: "pointer" }} onClick={handlePopUp}>⚜</b></span></h3></div>
       {
         userOrder.map((Order, index) => {
           return (
             <div key={Order._id} className='container'>
-              {<div className="card mb-3 my-3" style={{ maxWidth: "540px", backgroundColor: "#bee7ef" }}>
+              {<div className="card mb-3 my-3" style={{ maxWidth: "540px", backgroundColor: "var(--surface)" }}>
                 {!Order.rejected && <span className={`badge text-bg-${Order.placed ? "success" : "danger"}`}> <b>{Order.placed ? "prepared" : "preparing"}</b> </span>}
                 {Order.rejected && <span className={`badge text-bg-warning`}> <b>Rejected</b> </span>}
                 <div style={{ display: "flex", marginBottom: "5px" }}>
@@ -288,7 +288,7 @@ export default function Usermsg({ setpopup, featchCoin }) {
     {localStorage.getItem("employee") && <Container>
       <div id="Contents">
         <div className="mainHead">
-          <h1>Older Messages : </h1>
+          <h1>Live Orders</h1>
           <div id="Allmessages">
             <div className="messageBox">
               {orders.map((order, index) => {
@@ -319,12 +319,12 @@ export default function Usermsg({ setpopup, featchCoin }) {
                         </div>
                         <div className="operationBtn">
                           {order.take.notTaken && <div className="btn">
-                            <button className="disableBtn" style={{ backgroundColor: "rgb(82 219 80)" }} onClick={() => takeOrder(order, localStorage.getItem('uniqueEmployeeId'), index)} >take</button>
+                            <button className="disableBtn" style={{ backgroundColor: "var(--success)" }} onClick={() => takeOrder(order, localStorage.getItem('uniqueEmployeeId'), index)} >take</button>
                           </div>}
                           {!order.take.notTaken && <div className="btn">
-                            <button className='disableBtn' style={{ backgroundColor: "rgb(82 219 80)" }} onClick={() => { upDateOrder(order, index) }}>Complete</button>
+                            <button className='disableBtn' style={{ backgroundColor: "var(--success)" }} onClick={() => { upDateOrder(order, index) }}>Complete</button>
                           </div>}
-                          {!order.take.notTaken && <button style={{ backgroundColor: "rgb(219 80 80)", border: "1px solid black", borderRadius: "5px", padding: "2px 8px" }} onClick={() => rejectOrder(order, index)}>Reject</button>}
+                          {!order.take.notTaken && <button style={{ backgroundColor: "var(--danger)", border: "1px solid black", borderRadius: "5px", padding: "2px 8px" }} onClick={() => rejectOrder(order, index)}>Reject</button>}
                         </div>
                       </div>
                     </div>}
@@ -368,7 +368,7 @@ const Container = styled.div`
         #contents {
             margin: auto;
             width: 100%;
-            border: 2px solid black;
+            border: 1px solid var(--border);
         }
 
         #navbar {
@@ -551,7 +551,7 @@ const Container = styled.div`
 
 
         .menuBtn a:hover {
-            background-color: #f2f2f2;
+            background-color: var(--bg);
         }
 
         .menuBtn a:active {
@@ -565,7 +565,7 @@ const Container = styled.div`
             margin: auto;
             width: 50%;
             margin-top: 20px;
-            border: 2px solid black;
+            border: 1px solid var(--border);
             background: rgb(238, 234, 233);
 
         }
@@ -586,7 +586,7 @@ const Container = styled.div`
             width: 95%;
             margin: 23px;
             margin-bottom: 1.5rem;
-            border: 2px solid black;
+            border: 1px solid var(--border);
             border-radius: 5px;
             font-family: var(--font);
             font-size: 1.5rem;
@@ -622,7 +622,7 @@ const Container = styled.div`
             cursor: pointer;
             width: 100%;
             padding: 5px;
-            border: 2px solid black;
+            border: 1px solid var(--border);
             border-radius: 5px;
             background-color: rgb(231, 196, 196);
             font-family: var(--font);
@@ -669,7 +669,7 @@ const Container = styled.div`
             color: white;
             word-spacing: 5px;
             letter-spacing: 1px;
-            border: 2px solid red;
+            border: 1px solid var(--border);
             border-radius: 5px;
             padding: 2px;
             width: 100%;
@@ -677,8 +677,8 @@ const Container = styled.div`
         }
 
         .row {
-            border: 2px solid black;
-            background-color: #f5ebeb;
+            border: 1px solid var(--border);
+            background-color: var(--surface);
             border-radius: 5px;
         }
 
@@ -757,9 +757,9 @@ const Container = styled.div`
             } */
 
             .row {
-                border: 2px solid black;
+                border: 1px solid var(--border);
                 margin-top: 17px;
-                background-color: #f5ebeb;
+                background-color: var(--surface);
                 border-radius: 5px;
                 height: 220px;
             }
