@@ -676,59 +676,63 @@ const Container = styled.div`
             text-align: center;
         }
 
+        .dishImg {
+            margin: 0;
+        }
+
         .row {
             border: 1px solid var(--border);
             background-color: var(--surface);
-            border-radius: 5px;
-        }
-
-        .dishImg {
-            margin: 5px;
-        }
-
-        .row {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.75rem;
         }
 
         .dishImg img {
-            width: 180px;
-            margin-top: 2px;
-            margin-left: 4px;
-            height: 140px;
+            width: 120px;
+            height: 100px;
+            object-fit: cover;
             border: none;
-            border-radius: 5px;
+            border-radius: var(--radius);
+            margin: 0;
         }
 
         .dishDetails {
             display: flex;
             align-items: center;
+            gap: 1rem;
+            flex: 1;
         }
 
         .dishInfo {
-            margin-left: 30px;
+            margin-left: 0;
             word-spacing: 1px;
-            font-size: 1.7rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .operationBtn {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
-            position: relative;
-            left: 6rem;
-
+            position: static;
+            left: 0;
+            gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .btn button {
-            margin: 15px;
-            padding: 2px 16px;
-            border: 1px solid black;
-            background: none;
-            /*background-color: rgb(211 193 186); */
-            background-color: rgb(33, 219, 42);
-            border-radius: 5px;
-            transition: all 0.8s ease;
+            margin: 0;
+            padding: 0.5rem 1.1rem;
+            border: none;
+            color: #fff;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .btn button:hover {
@@ -749,73 +753,53 @@ const Container = styled.div`
         }
 
         @media only screen and (max-width: 1280px){
-/*
-            .operationBtn {
-                position: absolute;
-
-                right: 5rem;
-            } */
-
             .row {
-                border: 1px solid var(--border);
                 margin-top: 17px;
-                background-color: var(--surface);
-                border-radius: 5px;
-                height: 220px;
+                height: auto;
             }
 
             #Contents {
                 margin: auto;
-                width: 99%;
-            }
-
-            #header {
-                margin-left: -20vw;
+                width: 95%;
             }
         }
 
         @media only screen and (max-width : 788px) {
-
-            #header #mainHead h1 {
-                font-size: 2rem;
-            }
-
             .row {
                 flex-direction: column;
-                height: 224px;
+                align-items: stretch;
+                text-align: center;
+                height: auto;
+            }
+
+            .dishDetails {
+                flex-direction: column;
+                text-align: center;
             }
 
             .operationBtn {
-                position: relative;
-                left: 1rem;
-                top: -8px;
+                position: static;
+                left: 0;
+                top: 0;
+                justify-content: center;
             }
         }
 
         @media only screen and (max-width: 409px) {
             #Contents h1 {
                 margin-top: 1rem;
-                margin-left: 15px;
-                font-size: 1.6rem;
-            }
-
-            .heads h2 {
-                font-size: 1.3rem;
-                word-spacing: 1px;
+                font-size: 1.4rem;
             }
             .dishImg img {
-                width: 171px;
-                margin-top: 0px;
-                margin-left: -11px;
-                height: 132px;
+                width: 120px;
+                height: 100px;
                 border: none;
-                border-radius: 5px;
-            
+                border-radius: var(--radius);
             }
             .dishInfo {
-                margin-left: 1px;
+                margin-left: 0;
                 word-spacing: 1px;
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
         }
 `
