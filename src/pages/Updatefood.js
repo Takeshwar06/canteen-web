@@ -58,7 +58,7 @@ export default function Updatefood() {
         <div className="mainHead">
           <h2>Update Food</h2>
           <div id="search" className="searching">
-                            <input  value={searchTerm}onChange={handleSearchChange} className='mx-3' style={{borderRadius:"10px 10px 10px 10px"}} type="text" name="search" id="searchTxt" placeholder="search your favorite dish"/>
+                            <input value={searchTerm} onChange={handleSearchChange} style={{ borderRadius: "10px" }} type="text" name="search" id="searchTxt" placeholder="search your favorite dish" />
                           
                         </div>
           <div id="Allmessages">
@@ -298,9 +298,9 @@ input[type="submit"] {
 
 #Contents {
     margin: auto;
-    width: 90%;
-    max-width: 1000px;
-    padding-top: 1.5rem;
+    width: 100%;
+    max-width: 1140px;
+    padding: 1.5rem 1.25rem 3rem;
 }
 .mainHead h2 {
     font-size: 1.6rem;
