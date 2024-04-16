@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 import './Navbar.css'
 import { useRef } from 'react'
 import { useState } from 'react'
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
 
   // Get realtime update of what is window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -137,7 +139,15 @@ export default function Navbar() {
           </div>
 
           <div id="login-link">
-            {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <button className="login-btn" onClick={loginClick}>Login</button>}
+            {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <>
+              {isAuthenticated
+                ? <div className="user-chip">
+                    <img className="user-avatar" src={user.picture} alt={user.name} referrerPolicy="no-referrer" />
+                    <button className="login-btn logout" onClick={() => { localStorage.removeItem("UserId"); logout({ logoutParams: { returnTo: `${window.location.origin}/message` } }) }}>Logout</button>
+                  </div>
+                : <button className="login-btn" onClick={() => loginWithRedirect()}>Login</button>}
+              <button className="staff-link" onClick={loginClick} title="Staff login">Staff</button>
+            </>}
             {localStorage.getItem("employee") && <button className="login-btn logout" onClick={logClick}>Logout</button>}
             {localStorage.getItem("manager") && <button className="login-btn logout" onClick={logClick}>Logout</button>}
           </div>

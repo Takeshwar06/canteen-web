@@ -79,6 +79,33 @@
 #login-link {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-light);
+}
+.staff-link {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+}
+.staff-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 .login-btn {
