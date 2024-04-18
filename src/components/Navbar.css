@@ -75,6 +75,24 @@
   font-weight: 600;
 }
 
+/* wallet coin chip */
+.coin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.coin-chip i {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
 /* login / logout button */
 #login-link {
   display: flex;

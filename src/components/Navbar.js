@@ -5,7 +5,7 @@ import './Navbar.css'
 import { useRef } from 'react'
 import { useState } from 'react'
 
-export default function Navbar() {
+export default function Navbar({ coin }) {
   const navigate = useNavigate();
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
 
@@ -117,7 +117,6 @@ export default function Navbar() {
         <div className='menu-container'>
 
           <div className='menu-links' style={{ left: `${openMenu ? '0%' : '100%'}` }} >
-            {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/" end>Home</NavLink></li>}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/message">Orders</NavLink></li>}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/card">Cart</NavLink></li>}
             {!localStorage.getItem("employee") && !localStorage.getItem("manager") && <li onClick={()=>setOpenMenu(false)}><NavLink to="/orderhistory">History</NavLink></li>}
@@ -137,6 +136,11 @@ export default function Navbar() {
               </>
             }
           </div>
+
+          {isAuthenticated && <div className="coin-chip" title="Your wallet">
+            <i className="fa-solid fa-coins"></i>
+            <span>{coin || 0}</span>
+          </div>}
 
           <div id="login-link">
             {!localStorage.getItem("manager") && !localStorage.getItem("employee") && <>

@@ -43,6 +43,7 @@ function App() {
       })
       if(response.data.userId){
         localStorage.setItem("UserId",response.data.userId)
+        featchCoin();
       }
     }
   if(isAuthenticated){
@@ -75,7 +76,7 @@ function App() {
                 <div style={{left:`${webSlider&&"52vw"}`,visibility:`${webSlider&&"hidden"}`}}  id="openRight"> </div>
      </div>
      */}
-     <Navbar/>
+     <Navbar coin={userId}/>
 
 
 
