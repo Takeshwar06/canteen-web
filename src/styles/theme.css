@@ -24,6 +24,8 @@
   /* fonts */
   --font: 'Karla', system-ui, sans-serif;
   --heading-font: 'Karla', system-ui, sans-serif;
+  /* make bootstrap components use our font too */
+  --bs-body-font-family: 'Karla', system-ui, sans-serif;
 
   /* radius */
   --radius: 10px;
