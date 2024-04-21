@@ -13,6 +13,7 @@ import { EmployeeId, getAllOrderForUser, updateDeleted } from '../utils/APIRoute
 import { useRef } from 'react';
 import Button from '../components/Button';
 import Feedback from '../components/Feedback';
+import './Usermsg.css';
 
 export default function Usermsg({ setpopup, featchCoin }) {
   
@@ -253,31 +254,29 @@ export default function Usermsg({ setpopup, featchCoin }) {
       {
         userOrder.map((Order, index) => {
           return (
-            <div key={Order._id} className='container'>
-              {<div className="card mb-3 my-3" style={{ maxWidth: "540px", backgroundColor: "var(--surface)" }}>
-                {!Order.rejected && <span className={`badge text-bg-${Order.placed ? "success" : "danger"}`}> <b>{Order.placed ? "prepared" : "preparing"}</b> </span>}
-                {Order.rejected && <span className={`badge text-bg-warning`}> <b>Rejected</b> </span>}
-                <div style={{ display: "flex", marginBottom: "5px" }}>
-                  <div>
-                    <img onClick={()=>setFoodToLocal(Order.food_id)} style={{ height: "125px", width: "125px" }} src={Order.foodimg} className="img-fluid rounded-start" alt="..." />
-                  </div>
-                  <div style={{ marginLeft: "30px" }}>
-                    <h4 className="card-title">{Order.foodname}</h4>
-                    <h5 className="card-text">Quantity - {Order.foodQuantity}</h5>
-                    <h5 className="card-text">Price - {Order.foodQuantity * Order.foodprice}</h5>
-                    <small style={{ color: "red" }} className="card-title">{Order.order_id}{Order.rejected && " Reject-Order"}</small>
+            <div key={Order._id} className='order-wrap'>
+              <div className="order-card">
+                <div className="order-card-top">
+                  <img onClick={()=>setFoodToLocal(Order.food_id)} src={Order.foodimg} className="order-card-img" alt={Order.foodname} />
+                  <div className="order-card-info">
+                    {!Order.rejected && <span className={`order-status ${Order.placed ? "ready" : "preparing"}`}>{Order.placed ? "Prepared" : "Preparing"}</span>}
+                    {Order.rejected && <span className="order-status rejected">Rejected</span>}
+                    <h4 className="order-food-name">{Order.foodname}</h4>
+                    <div className="order-meta">Quantity · {Order.foodQuantity}</div>
+                    <div className="order-meta">Price · ₹{Order.foodQuantity * Order.foodprice}</div>
+                    <div className="order-id">{Order.order_id}{Order.rejected && " · Reject-Order"}</div>
                   </div>
                 </div>
-                <p className="card-text">
-                  {Order.rejected && <button onClick={() => { orderDeleted(Order, index) }} className="btn btn-dark" style={{ float: "right", marginRight: "10px" }}>delete</button>}
-                  {Order.placed && !Order.QRvalid && <button onClick={() => { orderDeleted(Order, index) }} className="btn btn-dark" style={{ float: "right", marginRight: "10px" }}>delete</button>}
-                  {Order.QRvalid && <button onClick={() => setQrUrl(Order.QRurl)} className="btn btn-dark" style={{ float: "right", marginLeft: "10px", marginRight: "10px" }}>QR</button>}
-                  {Order.placed && <span style={{ float: "right", marginLeft: "10px", }} onClick={() => !Order.rated && ratingModal(Order.food_id, Order.uniqueOrderId)}><i className={`${Order.rated?'fa-solid fa-star':"fa-regular fa-star"}`}></i></span>}
-                </p>
-                <small className="mx-3" style={{ color: "red" }}>
-                  {Order.date.toString().substring(0, 10)}
-                </small>
-              </div>}
+                <div className="order-card-footer">
+                  <span className="order-date">{Order.date.toString().substring(0, 10)}</span>
+                  <div className="order-actions">
+                    {Order.placed && <span className="rate-star" onClick={() => !Order.rated && ratingModal(Order.food_id, Order.uniqueOrderId)}><i className={`${Order.rated?'fa-solid fa-star':"fa-regular fa-star"}`}></i></span>}
+                    {Order.QRvalid && <button onClick={() => setQrUrl(Order.QRurl)} className="order-btn qr">QR</button>}
+                    {Order.rejected && <button onClick={() => { orderDeleted(Order, index) }} className="order-btn delete">Delete</button>}
+                    {Order.placed && !Order.QRvalid && <button onClick={() => { orderDeleted(Order, index) }} className="order-btn delete">Delete</button>}
+                  </div>
+                </div>
+              </div>
             </div>
           )
         })}</Fragment>}

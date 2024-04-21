@@ -114,22 +114,18 @@ export default function () {
             return (
               <div className='cart-container' key={food._id}>
                 <div className='image-container'>
-                  <img onClick={()=>setFoodToLocal(food.food_id)} class="cart-image" src={food.foodimg} />
+                  <img onClick={() => setFoodToLocal(food.food_id)} className="cart-image" src={food.foodimg} alt={food.foodname} />
                 </div>
-                <div className='image-description' >
-                  <p className="product-name" >
-                    name : <span class="cart-values" >{food.foodname.slice(0, 10)}..</span>
-                  </p>
-                  <p className="product-price" >
-                    price : <span class="cart-values" >{food.foodprice}</span>
-                  </p>
-                  <div class="add-quantity">
-                    <i class="cart-icons fa-solid fa-circle-minus" onClick={() => foodQuantityMinus(index)}></i>
-                    {/* <i class="fa-solid fa-plus"></i> */}
-                    <span className='quantity' >{food.foodQuantity}</span>
-                    {/* <i class="fa-solid fa-minus"></i> */}
-                    <i class="cart-icons fa-solid fa-circle-plus" onClick={() => foodQuantityPlus(index)}></i>
-                    <i class="cart-icons fa-solid fa-trash" onClick={() => foodDelete(index)}></i>
+                <div className='image-description'>
+                  <h4 className="product-name">{food.foodname}</h4>
+                  <p className="product-price">₹{food.foodprice}</p>
+                  <div className="add-quantity">
+                    <div className="cart-stepper">
+                      <i className="fa-solid fa-minus" onClick={() => foodQuantityMinus(index)}></i>
+                      <span className='quantity'>{food.foodQuantity}</span>
+                      <i className="fa-solid fa-plus" onClick={() => foodQuantityPlus(index)}></i>
+                    </div>
+                    <i className="cart-trash fa-solid fa-trash" onClick={() => foodDelete(index)}></i>
                   </div>
                 </div>
               </div>
@@ -140,7 +136,7 @@ export default function () {
       {/* footer */}
       <div className='payment-calculation' style={{ position: "fixed", bottom: 0, right: 0, left: 0, width: "100%", backgroundColor: "white", paddingBottom: "5px" }} >
         <span className='pay-total' >Total : <span class="cart-values" >{total}</span> </span>
-        <button className='pay-button ' style={{ backgroundColor: `${total < 1 && "rgb(158 205 158)"}` }} onClick={() => total > 0 && conformation()} >pay <i class="fa-brands fa-amazon-pay"></i> </button>
+        <button className='pay-button ' style={{ backgroundColor: `${total < 1 && "rgb(53 163 53)"}` }} onClick={() => total > 0 && conformation()} >pay <i class="fa-brands fa-amazon-pay"></i> </button>
       </div>
     </div>
   )
