@@ -1,0 +1,162 @@
+/* ===== Sales Report page ===== */
+.report-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* filter form card */
+.report-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.report-dates {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.report-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.report-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.report-field label small {
+  font-weight: 400;
+  color: var(--text-light);
+}
+.report-field input[type="date"] {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: all 0.15s ease;
+}
+.report-field input[type="date"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+  background: var(--surface);
+}
+.report-arrow {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  padding-bottom: 0.55rem;
+}
+
+/* group-by pills */
+.report-wise {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.report-wise-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-right: 0.25rem;
+}
+.wise-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+.wise-pill:hover { border-color: var(--primary); }
+.wise-pill input[type="radio"] {
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+.wise-pill:has(input:checked) {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.report-get {
+  align-self: flex-start;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.8rem;
+  transition: all 0.15s ease;
+}
+.report-get:hover { background: var(--primary-dark); }
+
+/* ===== generated report table (FoodTable) ===== */
+#jsx-template {
+  margin-top: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  max-width: 100%;
+}
+#jsx-template h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+#jsx-template small {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+#jsx-template table {
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#jsx-template table thead th {
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-light) !important;
+  padding: 0.75rem 0.5rem;
+  border-color: var(--border) !important;
+}
+#jsx-template table tbody td,
+#jsx-template table tbody th {
+  font-size: 0.95rem;
+  padding: 0.6rem 0.5rem;
+  vertical-align: middle;
+  border-color: var(--border) !important;
+}
+
+.report-page + .container,
+.report-page ~ .container {
+  max-width: 1040px;
+}
+
+@media (max-width: 600px) {
+  .report-page { padding: 1rem 0.75rem 2rem; }
+  .report-form { padding: 1.1rem; }
+  .report-dates { gap: 0.6rem; }
+  .report-arrow { display: none; }
+}

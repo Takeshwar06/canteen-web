@@ -80,16 +80,11 @@ export default function StockIssue() {
     <>
         {!showSelected&&<Container>
         <div id="stockPage">
-        <h1>Welcome to Stock Issue Page : </h1>
+        <h1>Stock Issue</h1>
         <div id="allStock">
-            {/* <div className="addList">
-                <div className="addNew">
-                    <button id="addBtn">Add-New-Item</button>
-                </div>
-            </div> */}
-            <div id="search" class="searching">
-                            <input style={{borderRadius:"10px 10px 10px 10px"}} value={searchTerm}onChange={handleSearchChange} type="text" name="search" id="searchTxt" placeholder="search your favorite dish"/>
-                            {/* <input id="searchBtn" type="submit" value="Search"/> */}
+            <div id="search" className="searching">
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                            <input value={searchTerm}onChange={handleSearchChange} type="text" name="search" id="searchTxt" placeholder="search inventory item"/>
                         </div>
             <div id="stock">
                 <table>
@@ -156,189 +151,141 @@ export default function StockIssue() {
   )
 }
 
-const Container=styled.div`
-* {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: var(--font);
-        }
+const Container = styled.div`
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
 
-        #stockPage h1 {
-            margin: 1.5rem 0px 1.5rem 0px;
-            text-align: center;
-        }
+  * { box-sizing: border-box; }
 
-        #allStock {
-            
-            margin-left: 10px;
-            margin-right: 10px;
-            border: 1px solid var(--border);
-        }
+  #stockPage h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.25rem;
+  }
+  #stockPage h1::before {
+    content: "";
+    width: 4px;
+    height: 1.05em;
+    background: var(--primary);
+    border-radius: 2px;
+  }
 
-        #stock {
-            margin: 1.5rem;
-        }
+  #allStock {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
 
-        #stock table {
-            border : 1px solid var(--border);
-            border-collapse: collapse;
-            text-align: center;
-            margin: auto;
-            width: 60%;
-        }
+  #search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1rem;
+    margin: 1.25rem 1.25rem 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--bg);
+    max-width: 380px;
+    transition: all 0.15s ease;
+  }
+  #search:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    background: var(--surface);
+  }
+  #search i { color: var(--text-muted); font-size: 0.9rem; }
+  #searchTxt {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
 
-        #stock table thead tr th {
-            font-size: 1.4rem;
-            padding: 20px 5px 20px 5px;
-            border : 1px solid var(--border);
+  #stock {
+    padding: 1.25rem;
+    overflow-x: auto;
+  }
+  #stock table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  #stock thead th {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    padding: 0.85rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #stock tbody td {
+    font-size: 0.92rem;
+    color: var(--text);
+    padding: 0.65rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #stock tbody tr:nth-child(even) { background: var(--bg); }
+  #stock tbody tr:hover { background: var(--primary-light); }
+  #stock input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+  }
 
-        }
+  #nameItem { width: 30%; }
 
-        #stock table tbody tr td {
+  #Btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1.25rem 1.25rem;
+  }
+  #Btns #save, #Btns #reset { margin: 0; }
+  #Btns button {
+    border-radius: var(--radius-pill);
+    border: none;
+    padding: 0.55rem 1.7rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  #Btns #saveBtn { background: var(--primary); color: #fff; }
+  #Btns #saveBtn:hover { background: var(--primary-dark); }
+  #Btns #saveBtn a { color: #fff; }
+  #Btns #resetBtn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  #Btns #resetBtn:hover { background: var(--bg); }
+  #Btns #resetBtn a { color: var(--text); }
+  #Btns button a {
+    text-decoration: none;
+    font-size: 1rem;
+  }
 
-            font-size: 1.1rem;
-            padding: 10px 0px 10px 0px;
-            border: 1px solid var(--border);
-        }
-
-        tr {
-            overflow-y: scroll;
-        }
-
-        tr:nth-child(even) {
-            background-color: var(--bg);
-        }
-
-        input[type="number"] {
-            width: 80%;
-            padding: 3px;
-        }
-
-        input[type="date"] {
-            width: 90%;
-        }
-
-        #nameItem {
-            width: 30%;
-        }
-        /* for Btn s */
-        #Btns{
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            margin: 10px 10% 20px auto;
-        }
-        #Btns #save,#reset {
-          margin: 10px;
-        }
-        #Btns button{
-            border-radius: 5px;
-            background-color: #f3f3;
-                   
-            padding: 4px 30px;
-        }
-        #Btns button a{
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
-        #Btns button:hover{
-            transform: scale(1.03);   
-            background: var(--primary);
-
-        }
-        #Btns button:active{
-            transform: scale(0.99);   
-            background: var(--primary);
-
-        }
-
-        @media (max-width : 1317px) {
-            #stock table {
-                width: 100%;
-            }
-        }
-
-        @media (max-width : 751px) {
-            
-
-            #stockPage h1 {
-                margin: 1.5rem 0px 1.5rem 0px;
-                text-align: center;
-                font-size: 1.5rem;
-            }
-
-            #allStock {
-
-                margin-left: 1px;
-                margin-right: 1px;
-                border: 1px solid var(--border);
-            }
-
-            #stock {
-                overflow-x: auto;
-                margin: -2px;
-            }
-
-            
-
-
-            .addNew button {
-                margin-bottom: 2%;
-            }
-
-
-
-        }
-
-        @media (max-width : 429px) {
-
-            #stock table thead tr th {
-                font-size: 1rem;
-                padding: 20px 5px 20px 5px;
-                border: 1px solid var(--border);
-            }
-            #stock table tbody tr td {
-                font-size: 0.9rem;
-                padding: 10px 0px 10px 0px;
-                border: 1px solid var(--border);
-            }
-
-            
-            .addNew button {
-                border-radius: 5px;
-                background-color: #f3f3;
-                padding: 2px 12px;
-                font-size: 1.4rem;
-                margin-top: 2%;
-                margin-right: 21%;
-            }
-        }
-
-        
-        .addNew{
-            display: flex;
-            justify-content: right;
-            align-items: center;
-        }
-        .addNew button {
-            border-radius: 5px;
-            background-color: #f3f3;
-            padding: 2px 12px;
-            font-size: 1.4rem;
-            margin-top: 2%;
-            margin-right: 21%;
-        }
-      
-        .addNew button:hover {
-            transform: scale(1.03);
-            background: var(--primary);
-
-        }
-
-        .addNew button:active {
-            transform: scale(0.99);
-            background: var(--primary);
-
-        }
-`  
+  @media (max-width: 600px) {
+    padding: 1rem 0.75rem 2rem;
+    #stockPage h1 { font-size: 1.35rem; }
+    #search { margin: 1rem 0.75rem 0; }
+    #stock { padding: 0.75rem; }
+    #stock thead th { font-size: 0.72rem; padding: 0.6rem 0.35rem; }
+    #stock tbody td { font-size: 0.82rem; padding: 0.5rem 0.35rem; }
+    #Btns button { padding: 0.5rem 1.2rem; }
+  }
+`

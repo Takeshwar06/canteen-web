@@ -84,12 +84,11 @@ export default function StockEntry() {
   return (
     <Container>
       <div id="stockPage">
-        <h3>Welcome to Stock Entry Page : </h3>
+        <h3>Stock Entry</h3>
         <div id="allStock">
-           {!showError&& <div class="addList">
-                <div class="addNew">
-                    <button id="addBtn" onClick={addFields} >Add-New-Item</button>
-                </div>
+           {!showError&& <div className="stock-toolbar">
+                <span className="stock-toolbar-hint">Add items received into inventory</span>
+                <button id="addBtn" onClick={addFields} ><i className="fa-solid fa-plus"></i> Add Item</button>
             </div>}
             {showError&&errorItem.length>0&&<h3 className='mx-3 my-2' style={{color:'red'}}>Some resson can not add this item</h3>}
             <div id="stock">
@@ -108,7 +107,7 @@ export default function StockEntry() {
                         {!showError&& inputField.map((inventory,index)=>{
                                 return(<tr key={index} class="bRow" id="bRow-1">
                             <td class="bodyRow" id="">{index+1}</td>
-                            <td class="bodyRow"><input name='name' style={{width:"15vw",margin:"5px"}} onChange={event=>handleChange(index,event)} placeholder='name' value={inventory.name} type="text" id="inptQty-1"/></td>
+                            <td class="bodyRow"><input name='name' onChange={event=>handleChange(index,event)} placeholder='name' value={inventory.name} type="text" id="inptQty-1"/></td>
                             <td class="bodyRow"><input name='quantity' onChange={event=>handleChange(index,event)} placeholder='Quantity' value={inventory.quantity} type="number" id="inptQty-1"/></td> 
                             <td class="bodyRow"><input name='price' onChange={event=>handleChange(index,event)} placeholder='price' value={inventory.price}type="number" id="inptPrice-1"/></td>       
                             <td class="bodyRow"><input name='expDate' onChange={event=>handleChange(index,event)} placeholder='expDate' value={inventory.expDate} type="date" id="expDate-1"/> </td>
@@ -145,215 +144,168 @@ export default function StockEntry() {
   )
 }
 
-const Container=styled.div`
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: var(--font);
-}
-#addBtn {
-    position: relative;
-    right: 15vw;
+const Container = styled.div`
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+
+  * { box-sizing: border-box; }
+
+  #stockPage h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.25rem;
+  }
+  #stockPage h3::before {
+    content: "";
+    width: 4px;
+    height: 1.05em;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+
+  #allStock {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .stock-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .stock-toolbar-hint {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  #addBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: none;
     border-radius: var(--radius-pill);
     color: #fff;
-    background-color: var(--primary);
-    font-family: var(--font);
+    background: var(--primary);
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-left: 13vw;
-    border: none;
-    padding: 6px 18px;
-}
-#stockPage h3 {
-    margin: 1.5rem 0px 1.5rem 0px;
-    text-align: center;
-    font-size: 1.3rem;
-}
+    font-size: 0.95rem;
+    padding: 0.5rem 1.1rem;
+    transition: all 0.15s ease;
+  }
+  #addBtn:hover { background: var(--primary-dark); }
 
-#allStock {
-
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background-color: var(--surface);
-    box-shadow: var(--shadow-sm);
-}
-
-#stock {
-    margin: 1.5rem;
-}
-
-#stock table {
-    border: 1px solid var(--border);
+  #stock {
+    padding: 1.25rem;
+    overflow-x: auto;
+  }
+  #stock table {
+    width: 100%;
     border-collapse: collapse;
     text-align: center;
-    margin: auto;
-    width: 60%;
-}
-
-#stock table thead tr th {
-    font-size: 1.2rem;
-    padding: 16px 5px;
     border: 1px solid var(--border);
-    background-color: var(--primary-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  #stock thead th {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
     color: var(--primary-dark);
-}
+    background: var(--primary-light);
+    padding: 0.85rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #stock tbody td {
+    font-size: 0.92rem;
+    color: var(--text);
+    padding: 0.65rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #stock tbody tr:nth-child(even) { background: var(--bg); }
+  #stock tbody tr:hover { background: var(--primary-light); }
 
-#stock table tbody tr td {
+  #nameItem { width: 30%; }
 
-    font-size: 1.1rem;
-    padding: 10px 0px;
-    border: 1px solid var(--border);
-}
-
-tr {
-    overflow-y: scroll;
-}
-
-tr:nth-child(even) {
-    background-color: var(--bg);
-}
-
-input[type="number"] {
-    width: 80%;
-    padding: 3px;
-}
-
-input[type="date"] {
+  #stock input[type="text"],
+  #stock input[type="number"],
+  #stock input[type="date"] {
     width: 90%;
-}
+    max-width: 200px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    outline: none;
+    background: var(--surface);
+    transition: all 0.15s ease;
+  }
+  #stock input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+  }
 
-#nameItem {
-    width: 30%;
-}
-
-/* for Btn s */
-#Btns {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin: 10px 10% 20px auto;
-}
-
-#Btns #save,
-#reset {
-    margin: 10px;
-}
-
-#Btns button {
+  #stock .btn {
     border-radius: var(--radius-pill);
-    background-color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.3rem 0.9rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--danger);
+    transition: all 0.15s ease;
+  }
+  #stock .btn:hover {
+    background: var(--danger);
     color: #fff;
-    border: none;
-    padding: 6px 30px;
-}
+    border-color: var(--danger);
+  }
 
-#Btns button a {
+  #Btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1.25rem 1.25rem;
+  }
+  #Btns #save, #Btns #reset { margin: 0; }
+  #Btns button {
+    border-radius: var(--radius-pill);
+    border: none;
+    padding: 0.55rem 1.7rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  #Btns #saveBtn { background: var(--primary); color: #fff; }
+  #Btns #saveBtn:hover { background: var(--primary-dark); }
+  #Btns #resetBtn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  #Btns #resetBtn:hover { background: var(--bg); }
+  #Btns button a {
     text-decoration: none;
-    font-size: 1.3rem;
-    color: #fff;
-}
+    font-size: 1rem;
+    color: inherit;
+  }
 
-#Btns button:hover {
-    transform: scale(1.03);
-    background: var(--primary-dark);
-
-}
-
-#Btns button:active {
-    transform: scale(0.99);
-    background: var(--primary-dark);
-
-}
-
-@media (max-width : 1317px) {
-    #stock table {
-        width: 100%;
-    }
-}
-
-@media (max-width : 751px) {
-
-
-    #stockPage h1 {
-        margin: 1.5rem 0px 1.5rem 0px;
-        text-align: center;
-        font-size: 1.6rem;
-    }
-
-    #allStock {
-
-        margin-left: 1px;
-        margin-right: 1px;
-        border: 2px solid black;
-    }
-
-    #stock {
-        overflow-x: auto;
-        margin: -2px;
-    }
-
-
-
-    .addNew button {
-        margin-bottom: 2%;
-    }
-
-
-}
-
-@media (max-width : 429px) {
-
-    #stock table thead tr th {
-        font-size: 1rem;
-        padding: 20px 5px 20px 5px;
-        border: 2px solid grey;
-    }
-
-    #stock table tbody tr td {
-        font-size: 0.7rem;
-        padding: 10px 0px 10px 0px;
-        border: 2px solid grey;
-    }
-
-    .addNew button {
-        border-radius: 5px;
-        background-color: #f3f3;
-        padding: 2px 12px;
-        font-size: 1.4rem;
-        margin-top: 2%;
-        margin-right: 21%;
-    }
-}
-
-
-.addNew{
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-.addNew button {
-    border-radius: var(--radius-pill);
-    background-color: var(--primary);
-    color: #fff;
-    border: none;
-    padding: 2px 12px;
-    font-size: 1.4rem;
-    margin-top: 2%;
-    margin-right: 21%;
-}
-
-.addNew button:hover {
-    transform: scale(1.03);
-    background: var(--primary-dark);
-
-}
-
-.addNew button:active {
-    transform: scale(0.99);
-    background: var(--primary-dark);
-
-}
-`  
+  @media (max-width: 600px) {
+    padding: 1rem 0.75rem 2rem;
+    #stockPage h3 { font-size: 1.35rem; }
+    #stock { padding: 0.75rem; }
+    #stock thead th { font-size: 0.72rem; padding: 0.6rem 0.35rem; }
+    #stock tbody td { font-size: 0.82rem; padding: 0.5rem 0.35rem; }
+    #Btns button { padding: 0.5rem 1.2rem; }
+  }
+`

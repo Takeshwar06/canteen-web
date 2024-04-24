@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { getAllFoodsRoute, getAllOrderForEmployee,Head } from '../utils/APIRoutes';
 import FoodTable from '../components/FoodTable';
 import Spin from '../components/Spin';
+import './Report.css';
 // implement startingdate to ending date (start-00:00:00.000Z to end-23:59:59:999Z)
 export default function Report() {
   const [foodMap,setFoodMap]=useState(undefined);
@@ -210,31 +211,35 @@ export default function Report() {
   }
   
   return (
-    <>
-    <div className="container">
-    <form className="" onSubmit={handleFoodMap}>
-   <div className="col-auto" style={{display:"flex",}}>
-    <input style={{margin:"10px"}} onChange={starting} value={inputDate.inpStartingDate} required type="date" className="form-control" id="starting"              placeholder="starting"/>
-    <label style={{marginTop:"13px",fontSize:"1.3rem"}}>to</label>
-    <input style={{margin:"10px"}} onChange={ending} value={inputDate.inpEndingDate}  type="date" className="form-control" id="ending"  placeholder="ending"/>
-   </div>
+    <div className="report-page">
+      <h1 className="page-title">Sales Report</h1>
+      <form className="report-form" onSubmit={handleFoodMap}>
+        <div className="report-dates">
+          <div className="report-field">
+            <label htmlFor="starting">From</label>
+            <input onChange={starting} value={inputDate.inpStartingDate} required type="date" id="starting" />
+          </div>
+          <span className="report-arrow">→</span>
+          <div className="report-field">
+            <label htmlFor="ending">To <small>(optional)</small></label>
+            <input onChange={ending} value={inputDate.inpEndingDate} type="date" id="ending" />
+          </div>
+        </div>
 
-<label  className='mx-2' htmlFor="">day</label>
-<input  required type="radio" name="wise" value="day" onChange={e=>setWise(e.target.value)} />
-<label  className='mx-2' htmlFor="">month</label>
-<input  required type="radio" name="wise" value="month" onChange={e=>setWise(e.target.value)} />
-<label  className='mx-2' htmlFor="">year</label>
-<input  required type="radio" name="wise" value="year" onChange={e=>setWise(e.target.value)} />
-   <button className="btn btn-success mx-2" type='submit'>get</button>
-</form>
- 
-  {/* Loading */}
- {isLoading&&<Spin/>}
-  {realFood&&<FoodTable orderArray={orderArray} realFood={realFood}/>}
+        <div className="report-wise">
+          <span className="report-wise-label">Group by</span>
+          <label className="wise-pill"><input required type="radio" name="wise" value="day" onChange={e=>setWise(e.target.value)} /> Day</label>
+          <label className="wise-pill"><input required type="radio" name="wise" value="month" onChange={e=>setWise(e.target.value)} /> Month</label>
+          <label className="wise-pill"><input required type="radio" name="wise" value="year" onChange={e=>setWise(e.target.value)} /> Year</label>
+        </div>
 
-  {/* <button onClick={featchMoreData} className="btn btn-success">butoon</button> */}
-  </div>
-    </>
+        <button className="report-get" type='submit'>Generate Report</button>
+      </form>
+
+      {/* Loading */}
+      {isLoading&&<Spin/>}
+      {realFood&&<FoodTable orderArray={orderArray} realFood={realFood}/>}
+    </div>
   )
 }
 
