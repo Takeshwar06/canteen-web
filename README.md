@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# 🍽️ Smart Canteen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A college canteen that runs itself — order from your phone, pay online, track your food live, and skip the queue entirely.
 
-## Available Scripts
+Built by a team of CSE students at **RSR Rungta College of Engineering & Technology, Bhilai** 🎓 — and it actually won things (twice 🏆).
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🎯 The Story — why we built this
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Every afternoon our college canteen turned into chaos. 😩
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Huge **queues** during the short lunch break — half the break gone just waiting.
+- Orders shouted across a crowded counter, money exchanged by hand, no record of anything.
+- The canteen staff had **no idea** what sold well, what to cook tomorrow, or how much raw material was left.
+- If your food ran out after you paid? Good luck getting your money back.
 
-### `npm test`
+So we thought — *what if the canteen worked like a proper food app, but made for our campus?*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Smart Canteen** is our answer: **preorder → pay online → get a QR code → walk in → scan → collect.** No queue, no cash, no confusion. And behind the scenes, the manager finally gets real numbers to plan with. 📊
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏆 Recognition
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We presented this at **आVishKar (Avishkar)** — the Technical & Scientific Model Presentation cum Exhibition at Sanjay Rungta Group of Institutions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Year | Edition | Result |
+|------|---------|--------|
+| 2023 | Avishkar 2023 | 🥈 **Runner-up** — first version of Smart Canteen |
+| 2024 | Avishkar 2.0 | 🏅 **Chairman's Trophy Award** — rebuilt with smarter features & real-world problem solving |
 
-### `npm run eject`
+> The 2024 version solved the problems more completely — real-time tracking, wallet refunds, stock management and prediction reports — which earned us the **Chairman's Trophy**, the top recognition of the event. 💛
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+📌 **Recognition posts (LinkedIn):**
+- 🔗 [Chairman's Trophy — Avishkar 2024](https://www.linkedin.com/posts/takeshwar06_hackathonwinners-smartcanteen-innovation-activity-7191347080416608256-mZ9-)
+- 🔗 [Avishkar win announcement](https://www.linkedin.com/posts/takeshwar06_hackathonchampions-innovation-techforgood-activity-7167120226189230080-JI4t)
+- 🔗 [Avishkar — team recognition](https://www.linkedin.com/posts/lokeshwar-dewangan-7b2163211_avishkar-softwareinnovation-techleadership-activity-7167142733273407488-dDt-)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*(links shortened for readability — they open the full posts)*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ✨ What it does
 
-## Learn More
+The system has **three kinds of people**, each with their own view 👇
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🧑‍🎓 Student / User
+- Sign in with **Google** — no new password to remember.
+- Browse the menu, see **today's specials**, and read **real reviews** (with photos ⭐) before ordering.
+- **Preorder** food and pay online — straight to a **wallet** balance.
+- Get a **one-time QR code** for every order. 📱
+- **Track your order live** — placed → preparing → ready.
+- Order rejected or food ran out? Money comes back to your **wallet** automatically. 💰
+- Leave **feedback** after eating — image + text + rating.
+- Check your full **order history** any time.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 👨‍🍳 Employee (canteen staff)
+- Separate **staff login**.
+- See incoming orders in **real time** and mark them *Complete* or *Reject*.
+- **Scan the student's QR** before handing over food — so no order is collected twice. ✅
+- **Add new food** items (name, price, image) and toggle **availability** on the fly.
+- **End-of-day refund** option for any food not collected.
 
-### Code Splitting
+### 🧑‍💼 Manager
+- **Sales reports** — day-wise, month-wise, year-wise, or any custom date range. 📈
+- **Stock management** — log raw material **entry** and **issue**, view **stock reports**.
+- **Download reports as PDF** for records and planning.
+- The numbers feed straight into **future demand prediction** — cook the right amount, waste less. 🌱
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🧱 Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Layer | Tech |
+|-------|------|
+| UI | **React** (Create React App), React Router, Context API |
+| Auth | **Auth0** (Google sign-in) for users · role-based login for staff |
+| Styling | Bootstrap, styled-components, custom CSS design tokens, **Karla** font |
+| Networking | Axios |
+| Payments & Wallet | Razorpay / UPI flow |
+| Reports & QR | QR code generation + scan, PDF export |
 
-### Making a Progressive Web App
+> 📱 This repo is the **web client**. Smart Canteen also has a companion **mobile app** (APK download available from the site) so students can order right from their phones.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 👥 The Team
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Just the two of us 💙 — long canteen-fuelled coding nights at **CSE, Sanjay Rungta Group of Institutions**.
 
-### Deployment
+- **Takeshwar Janghel** — [takeshwarcrafts.onrender.com](https://takeshwarcrafts.onrender.com/)
+- **Lokeshwar Dewangan** — [lokeshwardewangan.in](https://lokeshwardewangan.in)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 💡 In one line
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Smart Canteen turns a noisy, cash-and-queue college canteen into a calm, trackable, data-driven food system — and it's been **campus-tested and award-winning**. 🍔🏆
+
+That's it — a noisy cash-and-queue canteen, turned into something calm, trackable and a little bit smart. 🍔
