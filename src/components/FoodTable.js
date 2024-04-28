@@ -46,10 +46,9 @@ export default function FoodTable({realFood,orderArray}) {
   </tr> */}
 </tbody>
 </table>
- </div> 
-<div className="container">
-<button style={{fontSize:"20px",border:"1px solid black"
-,borderRadius:"5px",backgroundColor:"var(--primary)",padding:'0px 8px'}} className="mx-2" onClick={()=>print('Report', 'jsx-template')}> print</button>
+ </div>
+<div className="report-print-bar">
+<button className="report-print-btn" onClick={()=>print('Report', 'jsx-template')}><i className="fa-solid fa-download"></i> Download PDF</button>
 </div>
     </>
   )

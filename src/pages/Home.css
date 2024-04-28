@@ -139,7 +139,32 @@
   justify-content: flex-start;
   gap: 1.5rem;
   margin: 0;
-  padding: 0.5rem 0 1rem;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+#allFoods::-webkit-scrollbar {
+  height: 6px;
+}
+#allFoods::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-pill);
+}
+#allFoods::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* keep each circle from being squeezed into an oval by the flex row */
+#allFoods .food {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 100px;
+}
+#allFoods .food .label {
+  width: 100%;
+  text-align: center;
 }
 
 /* ---------- today's special cards ---------- */
